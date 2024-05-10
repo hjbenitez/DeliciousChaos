@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveVertical = 1;
     public float moveHorizontal = 1;
 
-    public bool inverted = false;
+    private GameManager invertedBool;
 
     public GameObject projectile;
     public GameObject projectileInverted;
@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
+        invertedBool = gameObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -69,12 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 movement = new Vector3(0, 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.Mouse1)) //flip dimension
-        {
-            inverted = !inverted;
-        }
-
-        if (inverted == true)
+        if (invertedBool.inverted == true)
         {
             if (Input.GetKey("w")) //up
             {

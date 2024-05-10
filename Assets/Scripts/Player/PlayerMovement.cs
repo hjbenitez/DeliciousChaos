@@ -8,10 +8,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed;
 
-    Rigidbody rb;
+    private float moveHorizontal = 1;
+    private float moveVertical = 1;
 
-    public float moveVertical = 1;
-    public float moveHorizontal = 1;
+    private GameManager invertedBool;
+
+
+    Rigidbody _rb;
 
     public bool inverted = false;
 
@@ -29,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
 
     }
 
@@ -69,12 +72,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 movement = new Vector3(0, 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.Mouse1)) //flip dimension
-        {
-            inverted = !inverted;
-        }
-
-        if (inverted == true)
+        if (invertedBool.inverted == true) //controls inversed
         {
             if (Input.GetKey("w")) //up
             {
@@ -94,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 movement = new Vector3(-moveHorizontal, movement.y, movement.z);
             }
         }
-        else
+        else //controls normal
         {
             if (Input.GetKey("w")) //up
             {
@@ -114,6 +112,9 @@ public class PlayerMovement : MonoBehaviour
                 movement = new Vector3(moveHorizontal, movement.y, movement.z);
             }
         }
+
+        _rb.velocity = movement * movementSpeed;
+    }
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -123,6 +124,6 @@ public class PlayerMovement : MonoBehaviour
                 canFire = false;
             }
         }
-        rb.velocity = movement * movementSpeed;
+        _rb.velocity = movement * movementSpeed;
     }
 }

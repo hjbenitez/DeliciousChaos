@@ -64,6 +64,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        print(other.name);
         if(other.gameObject.layer == 6)
         {
             TakeDamage(1);

@@ -5,8 +5,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody rb;
-    float speed = 10f;
-    float lifeTime = 5f;
+    public float speed = 10f;
+    public float lifeTime = 5f;
+    public float damage = 1f;
     float lifeTimer = 0f;
     // Start is called before the first frame update
     void Start()

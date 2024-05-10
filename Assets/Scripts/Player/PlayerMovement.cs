@@ -8,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody _rb;
 
+    private float moveHorizontal = 1;
+    private float moveVertical = 1;
+
+    public bool inverted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,24 +32,52 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckInput()
     {
-        Vector3 movement = new Vector3(0,0,0);
+        Vector3 movement = new Vector3(0, 0, 0);
 
-        if (Input.GetKey("w")) //up
+        if (Input.GetKeyDown(KeyCode.Mouse1)) //flip dimension
         {
-            movement = new Vector3(movement.x, movement.y, 1);
+            inverted = !inverted;
         }
-        else if (Input.GetKey("s")) //down
+
+        if (inverted == true) //controls inversed
         {
-            movement = new Vector3(movement.x, movement.y, -1);
+            if (Input.GetKey("w")) //up
+            {
+                movement = new Vector3(movement.x, movement.y, -moveVertical);
+            }
+            else if (Input.GetKey("s")) //down
+            {
+                movement = new Vector3(movement.x, movement.y, moveVertical);
+            }
+
+            if (Input.GetKey("a")) //left
+            {
+                movement = new Vector3(moveHorizontal, movement.y, movement.z);
+            }
+            else if (Input.GetKey("d")) //right
+            {
+                movement = new Vector3(-moveHorizontal, movement.y, movement.z);
+            }
         }
-        
-        if (Input.GetKey("a")) //left
+        else //controls normal
         {
-            movement = new Vector3(-1, movement.y, movement.z);
-        }
-        else if (Input.GetKey("d")) //right
-        {
-            movement = new Vector3(1, movement.y, movement.z);
+            if (Input.GetKey("w")) //up
+            {
+                movement = new Vector3(movement.x, movement.y, moveVertical);
+            }
+            else if (Input.GetKey("s")) //down
+            {
+                movement = new Vector3(movement.x, movement.y, -moveVertical);
+            }
+
+            if (Input.GetKey("a")) //left
+            {
+                movement = new Vector3(-moveHorizontal, movement.y, movement.z);
+            }
+            else if (Input.GetKey("d")) //right
+            {
+                movement = new Vector3(moveHorizontal, movement.y, movement.z);
+            }
         }
 
         _rb.velocity = movement * movementSpeed;

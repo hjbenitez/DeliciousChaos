@@ -15,6 +15,6 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = Vector3.forward * speed;
+        rb.velocity = transform.forward * speed;
     }
 }

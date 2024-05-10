@@ -1,30 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
-    Rigidbody rb;
-    public float speed = 10f;
-    public float lifeTime = 5f;
-    public float damage = 1f;
-    float lifeTimer = 0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+    public Rigidbody rb;
+    public float speed;
+    public float lifeTime;
+    public float damage;
 
-    // Update is called once per frame
-    void Update()
-    {
-        rb.velocity = transform.forward * speed;
-
-        lifeTimer += Time.deltaTime;
-
-        if(lifeTimer > lifeTime)
-        {
-            Destroy(gameObject);
-        }
-    }
+    public abstract void fired();
 }

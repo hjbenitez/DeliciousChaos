@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-
+        invertedBool = gameObject.GetComponent<GameManager>();
     }
 
     // Update is called once per frame

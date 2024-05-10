@@ -69,14 +69,14 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 movement = new Vector3(0, 0, 0);
 
-        if (Input.GetKey(KeyCode.Mouse1)) //flip dimension
+        if (Input.GetKeyDown(KeyCode.Mouse1)) //flip dimension
         {
             inverted = !inverted;
         }
 
         if (inverted == true)
         {
-            if (Input.GetKeyDown("w")) //up
+            if (Input.GetKey("w")) //up
             {
                 movement = new Vector3(movement.x, movement.y, -moveVertical);
             }

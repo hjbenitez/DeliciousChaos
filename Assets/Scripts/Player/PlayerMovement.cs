@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         CheckInput();
-        print(fireRateTimer);
+        //print(fireRateTimer);
 
         if (!canFire)
         {

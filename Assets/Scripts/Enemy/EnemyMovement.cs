@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EnemyMovement : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public Rigidbody rb;
+    public List<Rigidbody> rbs;
     public GameObject enemyHealthBarPrefab;
     public Transform healthBarSpawnLocation;
     private GameObject healthCanvas;
@@ -56,15 +56,29 @@ public class EnemyMovement : MonoBehaviour
         if(currentHealth <= 0)
         {
             dead = true;
-            agent.isStopped = true;
-            rb.isKinematic = false;
-            rb.AddForce(this.transform.position - player.transform.position, ForceMode.Impulse);
+            Destroy(agent);
+            Destroy(healthCanvas);
+
+            float minForce = 0;
+
+            for (int i = 0; i < rbs.Count; i++)
+            {
+                float randomForce = Random.Range(minForce, 2f);
+
+                if(randomForce < 1)
+                {
+                    minForce = 1;
+                }
+                
+                rbs[i].isKinematic = false;
+                rbs[i].AddForce((this.transform.position - player.transform.position) * (i * randomForce),  ForceMode.Impulse);
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 6)
+        if(other.gameObject.layer == 6 && !dead)
         {
             TakeDamage(1);
         }

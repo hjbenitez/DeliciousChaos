@@ -114,7 +114,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _rb.velocity = movement * movementSpeed;
-    }
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -124,6 +123,5 @@ public class PlayerMovement : MonoBehaviour
                 canFire = false;
             }
         }
-        _rb.velocity = movement * movementSpeed;
     }
 }

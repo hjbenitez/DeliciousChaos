@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed;
-
+    
     Rigidbody rb;
 
     public float moveVertical = 1;
@@ -44,12 +44,6 @@ public class PlayerMovement : MonoBehaviour
         mouseDirection.y = transform.position.y;
 
         this.transform.LookAt(mouseDirection);
-
-
-        //if (StaticValues.levelStarted)
-        {
-
-        }
 
         CheckInput();
         print(fireRateTimer);
@@ -119,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
                 canFire = false;
             }
         }
-        rb.velocity = movement * movementSpeed;
+
+        rb.velocity = movement.normalized * movementSpeed;
     }
 }

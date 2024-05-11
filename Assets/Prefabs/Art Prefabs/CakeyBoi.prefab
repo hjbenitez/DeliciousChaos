@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5534575693157558981}
   - component: {fileID: 2563979732282259922}
   - component: {fileID: 6562310127939270447}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Cake (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6596975621925225438}
   - component: {fileID: 8942604904431133359}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 1782198209298218405}
   - component: {fileID: 4930220317895870376}
   - component: {fileID: 4429429240007401459}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: footsies (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 4572098589047713356}
   - component: {fileID: 8369644001179240724}
   - component: {fileID: 6325847658676771541}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: footsies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 3095494830204082531}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.33}
+  m_LocalPosition: {x: 0, y: 0, z: 1.474}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.125}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -408,8 +408,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1902393, y: 1.5178014, z: 1.1023}
+  m_Center: {x: 0.030259952, y: 0.25890166, z: -0.051150452}
 --- !u!1 &3406232061913874935
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 9008047470806325088}
   m_Layer: 7
   m_Name: CakeyBoi
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 9082841005056472989}
   - component: {fileID: 8977292337330893990}
   - component: {fileID: 3474791674593557467}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Cake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 6329767073136199560}
   - component: {fileID: 8691282993493612226}
   - component: {fileID: 1592603404589388936}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Feets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 6637078322841201704}
   - component: {fileID: 8679228085100837056}
   - component: {fileID: 7176408048839873868}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Cake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 3664587086855442999}
   - component: {fileID: 1277401031870830320}
   - component: {fileID: 1197632390975827680}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,7 +968,7 @@ GameObject:
   - component: {fileID: 5739627802374582173}
   - component: {fileID: 1813410639980482072}
   - component: {fileID: 8514381292007453491}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: eyes (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1051,7 +1051,7 @@ GameObject:
   - component: {fileID: 2891762153820524647}
   - component: {fileID: 3123142199996996327}
   - component: {fileID: 112026240539111483}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

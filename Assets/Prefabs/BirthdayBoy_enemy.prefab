@@ -213,6 +213,7 @@ MonoBehaviour:
   healthBarSpawnLocation: {fileID: 2104552817667355675}
   anim: {fileID: 8201947712086849799}
   maxHealth: 6
+  scoreAmount: 100
 --- !u!195 &1054999711213596931
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ToggleDimension();
+
+        StaticValues.inverted = inverted;
     }
 
     public void ToggleDimension()

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3805268866451854216}
   - component: {fileID: 6772795796994826952}
   - component: {fileID: 873615781760175604}
+  - component: {fileID: 4898541634720075570}
   - component: {fileID: 8564978163279278771}
   m_Layer: 3
   m_Name: Player
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5887018574752295800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.55, z: 0}
+  m_LocalPosition: {x: -0.038360834, y: 1.5, z: -0.042411327}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -136,6 +137,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4898541634720075570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887018574752295800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65901c1dcc86cad4eb70a1e85d23213e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inverted: 0
 --- !u!114 &8564978163279278771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,9 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8757d256ced95244d86f0e8a035dfefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  moveVertical: 1
-  moveHorizontal: 1
-  projectile: {fileID: 0}
-  projectileInverted: {fileID: 0}
-  fireRate: 2
+  movementSpeed: 6
+  projectile: {fileID: 4477007419755437862, guid: 8ca80eca064e91a4a97242fe41c9f2b0, type: 3}
+  projectileInverted: {fileID: 6996725791328069590, guid: 463d0e9b7dc892a4395fd622271429b2, type: 3}

@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float midPoint = (transform.position - Camera.main.transform.position).magnitude * 0.5f;
+        float midPoint = (transform.position - Camera.main.transform.position).magnitude * 1f;
         mouseDirection = mouseRay.origin + mouseRay.direction * midPoint;
 
         mouseDirection.y = transform.position.y;

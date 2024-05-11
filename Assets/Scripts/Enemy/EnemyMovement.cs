@@ -141,8 +141,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if(other.gameObject.layer == 6 && !dead)
         {
-            TakeDamage(other.gameObject.GetComponent<Projectile>().GetDamage());
-            Destroy(other.gameObject);
+            //TakeDamage(other.gameObject.GetComponent<Projectile>().GetDamage());
         }
     }
 }

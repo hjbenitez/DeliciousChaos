@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class Bazooka : Projectile
+public class Mouth : Projectile
 {
     Rigidbody rb;
     public float speed = 50f;
@@ -46,11 +46,6 @@ public class Bazooka : Projectile
     public override void fired()
     {
         throw new System.NotImplementedException();
-    }
-
-    public override float GetFireRate()
-    {
-        return fireRate;
     }
 
     public override int GetDamage()

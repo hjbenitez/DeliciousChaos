@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private GameManager gameManager;
 
     public float maxHealth = 5f;
-    float health;
+    [HideInInspector]
+    public float health;
 
     Rigidbody _rb;
 
@@ -47,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(health);
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         float midPoint = (transform.position - Camera.main.transform.position).magnitude * 1f;
         mouseDirection = mouseRay.origin + mouseRay.direction * midPoint;

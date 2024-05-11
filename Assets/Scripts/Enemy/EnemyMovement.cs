@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         healthCanvas = Instantiate(enemyHealthBarPrefab, healthBarSpawnLocation.position, enemyHealthBarPrefab.transform.rotation);
         healthCanvas.transform.SetParent(GameObject.Find("EnemyHpBarHolder").transform);
         EnemyCanvas ec = healthCanvas.GetComponent<EnemyCanvas>();
-        ec.canvasPos = this.transform;
+        ec.canvasPos = healthBarSpawnLocation;
         hpBar = ec.healthBar;
     }
 
@@ -41,7 +41,6 @@ public class EnemyMovement : MonoBehaviour
         {
             agent.SetDestination(player.transform.position);
         }
-
 
         if (Input.GetKeyDown("h"))
         {
@@ -60,6 +59,7 @@ public class EnemyMovement : MonoBehaviour
             Destroy(agent);
             Destroy(healthCanvas);
             Destroy(damager);
+            Destroy(this.gameObject.GetComponent<BoxCollider>());
 
             float minForce = 0;
 

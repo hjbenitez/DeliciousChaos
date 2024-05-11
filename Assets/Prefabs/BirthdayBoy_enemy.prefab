@@ -56,8 +56,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.8083553, y: 6.866876, z: 4.0194697}
-  m_Center: {x: 0.06888133, y: 2.4604933, z: 0.26939464}
+  m_Size: {x: 3.8083553, y: 6.866876, z: 3.0606658}
+  m_Center: {x: 0.06888127, y: 2.4604933, z: -0.21000719}
 --- !u!54 &3861955775763140705
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1049,6 +1049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7627890764809398716}
+  - component: {fileID: 8201947712086849799}
   m_Layer: 7
   m_Name: Model
   m_TagString: Enemy
@@ -1080,6 +1081,27 @@ Transform:
   - {fileID: 2119496781434792332}
   m_Father: {fileID: 8302048682583951369}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &8201947712086849799
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046844184429686076}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03495f3ddcf11614ba090b712e9fab01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6986361167403736071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1393,7 @@ Transform:
   m_GameObject: {fileID: 7829615404927338630}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28000048, y: 2.7350006, z: 2.6800005}
+  m_LocalPosition: {x: -0, y: 1.91, z: -1.63}
   m_LocalScale: {x: 1.5000001, y: 1.5, z: 1.5000001}
   m_ConstrainProportionsScale: 0
   m_Children: []

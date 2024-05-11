@@ -11,11 +11,5 @@ public abstract class Projectile : MonoBehaviour
     public abstract float GetFireRate();
     public abstract int GetDamage();
 
-    public virtual void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer != 3 && other.gameObject.layer != 7)
-        {
-            Destroy(gameObject);
-        }
-    }
+    public abstract void OnTriggerEnter(Collider other);       
 }

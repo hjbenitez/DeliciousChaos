@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     private GameManager gameManager;
 
+    public float maxHealth = 5f;
+    float health;
 
     Rigidbody _rb;
     public Projectile projectile;
@@ -34,11 +36,13 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         gameManager = gameObject.GetComponent<GameManager>();
         currentProjectile = projectile;
+        health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(health);
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         float midPoint = (transform.position - Camera.main.transform.position).magnitude * 1f;
         mouseDirection = mouseRay.origin + mouseRay.direction * midPoint;
@@ -92,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
             movement = new Vector3(moveHorizontal * invertValue, movement.y, movement.z);
         }
 
-        _rb.velocity = movement * movementSpeed;
+        _rb.velocity = movement.normalized * movementSpeed;
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -116,6 +120,14 @@ public class PlayerMovement : MonoBehaviour
         {
             invertValue = 1;
             currentProjectile = projectile;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 8)
+        {
+            health--;
         }
     }
 }

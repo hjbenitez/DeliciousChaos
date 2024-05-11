@@ -43,4 +43,17 @@ public class MachineGun : Projectile
     {
         return damage;
     }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer != 3 && other.gameObject.layer != 8)
+        {
+            if(other.gameObject.tag == "Enemy")
+            {
+                other.gameObject.GetComponent<EnemyMovement>().TakeDamage(damage);
+            }
+
+            Destroy(gameObject);
+        }
+    }
 }

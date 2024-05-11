@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public NavMeshAgent agent;
     public List<Rigidbody> rbs;
+    public GameObject damager; 
     public GameObject enemyHealthBarPrefab;
     public Transform healthBarSpawnLocation;
     private GameObject healthCanvas;
@@ -58,6 +59,7 @@ public class EnemyMovement : MonoBehaviour
             dead = true;
             Destroy(agent);
             Destroy(healthCanvas);
+            Destroy(damager);
 
             float minForce = 0;
 
@@ -71,7 +73,7 @@ public class EnemyMovement : MonoBehaviour
                 }
                 
                 rbs[i].isKinematic = false;
-                rbs[i].AddForce((this.transform.position - player.transform.position) * (i * randomForce),  ForceMode.Impulse);
+                rbs[i].AddForce((this.transform.position - player.transform.position).normalized * (i * randomForce),  ForceMode.Impulse);
             }
         }
     }
@@ -80,8 +82,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if(other.gameObject.layer == 6 && !dead)
         {
-            TakeDamage(other.gameObject.GetComponent<Projectile>().GetDamage());
-            Destroy(other.gameObject);
+            //TakeDamage(other.gameObject.GetComponent<Projectile>().GetDamage());
+            //Destroy(other.gameObject);
         }
     }
 }

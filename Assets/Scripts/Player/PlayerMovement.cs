@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(health);
+        //print(health);
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         float midPoint = (transform.position - Camera.main.transform.position).magnitude * 1f;
         mouseDirection = mouseRay.origin + mouseRay.direction * midPoint;
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        print(currentProjectile.GetFireRate());
+        //print(currentProjectile.GetFireRate());
     }
 
     public void CheckInput()

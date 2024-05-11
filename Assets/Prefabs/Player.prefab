@@ -372,7 +372,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &4898541634720075570
 MonoBehaviour:
@@ -403,8 +403,6 @@ MonoBehaviour:
   cakeZooka: {fileID: 3807430255582468324, guid: 515649793ec96bb458d48142cfa5fb15, type: 3}
   movementSpeed: 6
   maxHealth: 5
-  projectile: {fileID: 4477007419755437862, guid: 8ca80eca064e91a4a97242fe41c9f2b0, type: 3}
-  projectileInverted: {fileID: 6996725791328069590, guid: 463d0e9b7dc892a4395fd622271429b2, type: 3}
 --- !u!1 &6398478991132785160
 GameObject:
   m_ObjectHideFlags: 0

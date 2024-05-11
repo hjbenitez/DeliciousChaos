@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5219741561920972491, guid: bd3ce19aac52ed042a32a8b7c6890aef, type: 3}
+  - {fileID: 2100000, guid: 61ad4a69779987c4c853c92e1e192ed2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -200,7 +200,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5219741561920972491, guid: bd3ce19aac52ed042a32a8b7c6890aef, type: 3}
+  - {fileID: 2100000, guid: 61ad4a69779987c4c853c92e1e192ed2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -593,6 +593,7 @@ MonoBehaviour:
   healthBarSpawnLocation: {fileID: 7572022722290830895}
   anim: {fileID: 8942604904431133359}
   maxHealth: 3
+  scoreAmount: 50
 --- !u!1 &3775207536904189890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1018,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5219741561920972491, guid: bd3ce19aac52ed042a32a8b7c6890aef, type: 3}
+  - {fileID: 2100000, guid: 61ad4a69779987c4c853c92e1e192ed2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

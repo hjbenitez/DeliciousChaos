@@ -11,10 +11,12 @@ public class Mouth : Projectile
     public float lifeTime = 5f;
     public int damage = 3;
     public float fireRate = 2.5f;
+    public ParticleSystem boom;
     float lifeTimer = 0f;
 
     float initialSpeedTime = 0;
     float damageRadius = 5f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +69,8 @@ public class Mouth : Projectile
                 }
             }
 
+            ParticleSystem temp = Instantiate(boom, transform.position, transform.rotation);
+            temp.Play();
             Destroy(gameObject);
         }
     }

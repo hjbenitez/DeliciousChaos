@@ -80,7 +80,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if(other.gameObject.layer == 6 && !dead)
         {
-            TakeDamage(1);
+            TakeDamage(other.gameObject.GetComponent<Projectile>().GetDamage());
+            Destroy(other.gameObject);
         }
     }
 }

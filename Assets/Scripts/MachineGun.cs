@@ -4,33 +4,43 @@ using UnityEngine;
 
 public class MachineGun : Projectile
 {
-    public Rigidbody rb;
+    Rigidbody rb;
     public float speed = 10f;
     public float lifeTime = 5f;
-    public float damage = 1f;
+    public int damage = 1;
+    public float fireRate = 0.25f;
     float lifeTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        speed = 10f;
-        lifeTime = 5f;
-        damage = 1f;
-        lifeTimer = 0f;
-
         fired();
+
     }
 
-    public override void fired()
+    void Update()
     {
-        rb.velocity = transform.forward * speed;
-
         lifeTimer += Time.deltaTime;
 
         if (lifeTimer > lifeTime)
         {
             Destroy(gameObject);
         }
+    }
+
+    public override void fired()
+    {
+        rb.velocity = transform.forward * speed;
+    }
+
+    public override float GetFireRate()
+    {
+        return fireRate;
+    }
+
+    public override int GetDamage()
+    {
+        return damage;
     }
 }

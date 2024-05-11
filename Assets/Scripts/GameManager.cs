@@ -15,14 +15,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckInput();
+        ToggleDimension();
     }
 
-    public void CheckInput()
+    public void ToggleDimension()
     {
         if (Input.GetKeyDown(KeyCode.Mouse1)) //flip dimension
         {
             inverted = !inverted;
+            GetComponent<PlayerMovement>().Invert();
         }
     }
 }

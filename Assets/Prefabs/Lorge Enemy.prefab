@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9178837204527371650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 4056778586951752135}
   - component: {fileID: 6264797103156486828}
   - component: {fileID: 5771909647835125083}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CakeTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 2577060114867888415}
   - component: {fileID: 5107336680702401077}
   - component: {fileID: 3490237992250086079}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CakeRightEye 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 3796772544300912905}
   - component: {fileID: 8501420712235061337}
   - component: {fileID: 2664530736965294300}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BirthdayBoy_enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 3824718037917588120}
   - component: {fileID: 1225298059134808212}
   - component: {fileID: 4414812001065999697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CakeLegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 5966868579145495268}
   - component: {fileID: 3396668642980154727}
   - component: {fileID: 3588106142526630327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CakeMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 8576487612984991069}
   - component: {fileID: 5549593784233829421}
   - component: {fileID: 5104409551030071439}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CakeBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2598277531505246942}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HealthBarSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 7559726365178735847}
   - component: {fileID: 928582656823621060}
   - component: {fileID: 6437516256618508783}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CakeLeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1020,7 +1020,7 @@ GameObject:
   - component: {fileID: 6423565136220429346}
   - component: {fileID: 4610125377005020686}
   - component: {fileID: 3099274278372097351}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lorge Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 5770452856797244064}
   - component: {fileID: 1635815578642210338}
   - component: {fileID: 9017249232625149189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CakeLegLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

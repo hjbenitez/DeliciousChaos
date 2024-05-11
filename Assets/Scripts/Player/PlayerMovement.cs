@@ -11,18 +11,17 @@ public class PlayerMovement : MonoBehaviour
     private float moveHorizontal = 1;
     private float moveVertical = 1;
 
-    private GameManager invertedBool;
+    private GameManager gameManager;
 
 
     Rigidbody _rb;
+    public Projectile projectile;
+    public Projectile projectileInverted;
+    Projectile currentProjectile;
 
-    public bool inverted = false;
-
-    public GameObject projectile;
-    public GameObject projectileInverted;
+    float invertValue = 1;
 
     //Fire Rate
-    public float fireRate = 2f;
     float fireRateTimer = 0f;
     bool canFire = true;
 
@@ -33,7 +32,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        invertedBool = gameObject.GetComponent<GameManager>();
+        gameManager = gameObject.GetComponent<GameManager>();
+        currentProjectile = projectile;
     }
 
     // Update is called once per frame
@@ -60,57 +60,36 @@ public class PlayerMovement : MonoBehaviour
         {
             fireRateTimer += Time.deltaTime;
 
-            if (fireRateTimer > fireRate)
+            if (fireRateTimer > currentProjectile.GetFireRate())
             {
                 canFire = true;
                 fireRateTimer = 0;
             }
         }
+
+        print(currentProjectile.GetFireRate());
     }
 
     public void CheckInput()
     {
         Vector3 movement = new Vector3(0, 0, 0);
 
-        if (invertedBool.inverted == true) //controls inversed
+        if (Input.GetKey("w")) //up
         {
-            if (Input.GetKey("w")) //up
-            {
-                movement = new Vector3(movement.x, movement.y, -moveVertical);
-            }
-            else if (Input.GetKey("s")) //down
-            {
-                movement = new Vector3(movement.x, movement.y, moveVertical);
-            }
-
-            if (Input.GetKey("a")) //left
-            {
-                movement = new Vector3(moveHorizontal, movement.y, movement.z);
-            }
-            else if (Input.GetKey("d")) //right
-            {
-                movement = new Vector3(-moveHorizontal, movement.y, movement.z);
-            }
+            movement = new Vector3(movement.x, movement.y, moveVertical * invertValue);
         }
-        else //controls normal
+        else if (Input.GetKey("s")) //down
         {
-            if (Input.GetKey("w")) //up
-            {
-                movement = new Vector3(movement.x, movement.y, moveVertical);
-            }
-            else if (Input.GetKey("s")) //down
-            {
-                movement = new Vector3(movement.x, movement.y, -moveVertical);
-            }
+            movement = new Vector3(movement.x, movement.y, -moveVertical * invertValue);
+        }
 
-            if (Input.GetKey("a")) //left
-            {
-                movement = new Vector3(-moveHorizontal, movement.y, movement.z);
-            }
-            else if (Input.GetKey("d")) //right
-            {
-                movement = new Vector3(moveHorizontal, movement.y, movement.z);
-            }
+        if (Input.GetKey("a")) //left
+        {
+            movement = new Vector3(-moveHorizontal * invertValue, movement.y, movement.z);
+        }
+        else if (Input.GetKey("d")) //right
+        {
+            movement = new Vector3(moveHorizontal * invertValue, movement.y, movement.z);
         }
 
         _rb.velocity = movement * movementSpeed;
@@ -119,9 +98,24 @@ public class PlayerMovement : MonoBehaviour
         {
             if (canFire)
             {
-                Instantiate(projectile, transform.position + (transform.forward * 0.5f), transform.rotation);
+                Instantiate(currentProjectile.gameObject, transform.position + (transform.forward * 0.5f), transform.rotation);
                 canFire = false;
             }
+        }
+    }
+
+    public void Invert()
+    {
+        if (gameManager.inverted)
+        {
+            invertValue = -1;
+            currentProjectile = projectileInverted;
+        }
+
+        else
+        {
+            invertValue = 1;
+            currentProjectile = projectile;
         }
     }
 }

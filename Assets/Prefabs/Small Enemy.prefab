@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5216753776803413702}
   - component: {fileID: 5204353761912045219}
   - component: {fileID: 2616380510296445029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Layer (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 3873973332125535187}
   - component: {fileID: 5377353988538080034}
   - component: {fileID: 4241200292995220745}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Layer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2598277531505246942}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HealthBarSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 4106367844242021082}
   - component: {fileID: 696021668622115544}
   - component: {fileID: 6281626673375707085}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Layer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 6423565136220429346}
   - component: {fileID: 4610125377005020686}
   - component: {fileID: 3099274278372097351}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Small Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

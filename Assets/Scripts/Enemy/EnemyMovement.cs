@@ -42,6 +42,7 @@ public class EnemyMovement : MonoBehaviour
             agent.SetDestination(player.transform.position);
         }
 
+
         if (Input.GetKeyDown("h"))
         {
             TakeDamage(1);

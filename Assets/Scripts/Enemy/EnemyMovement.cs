@@ -80,8 +80,6 @@ public class EnemyMovement : MonoBehaviour
             TakeDamage(1);
         }
 
-        print(StaticValues.inverted + " " + prevInvertValue);
-
         if (StaticValues.inverted)
         {
             foreach (GameObject obj in InverseTextures)

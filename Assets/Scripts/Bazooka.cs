@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pop : Projectile
+public class Bazooka : Projectile
 {
-    float lifeTimer;
+    public Rigidbody rb;
+    public float speed = 10f;
+    public float lifeTime = 5f;
+    public float damage = 1f;
+    float lifeTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        speed = 10f;
-        lifeTime = 5f;
-        damage = 1f;
-        lifeTimer = 0f;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Pop : Projectile
 
         lifeTimer += Time.deltaTime;
 
-        if(lifeTimer > lifeTime)
+        if (lifeTimer > lifeTime)
         {
             Destroy(gameObject);
         }

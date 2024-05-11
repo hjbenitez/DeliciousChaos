@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed;
+    public Weapon machineFork;
+    public Weapon cakeZooka;
+    Weapon currentWeapon;
 
+    public float movementSpeed;
     private float moveHorizontal = 1;
     private float moveVertical = 1;
 
@@ -17,9 +21,6 @@ public class PlayerMovement : MonoBehaviour
     float health;
 
     Rigidbody _rb;
-    public Projectile projectile;
-    public Projectile projectileInverted;
-    Projectile currentProjectile;
 
     float invertValue = 1;
 
@@ -35,14 +36,18 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         gameManager = gameObject.GetComponent<GameManager>();
-        currentProjectile = projectile;
+        currentWeapon = machineFork;
+
+        machineFork.gameObject.SetActive(true);
+        cakeZooka.gameObject.SetActive(false);
+
         health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //print(health);
+        print(health);
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         float midPoint = (transform.position - Camera.main.transform.position).magnitude * 1f;
         mouseDirection = mouseRay.origin + mouseRay.direction * midPoint;
@@ -64,14 +69,12 @@ public class PlayerMovement : MonoBehaviour
         {
             fireRateTimer += Time.deltaTime;
 
-            if (fireRateTimer > currentProjectile.GetFireRate())
+            if (fireRateTimer > currentWeapon.GetFireRate())
             {
                 canFire = true;
                 fireRateTimer = 0;
             }
         }
-
-        //print(currentProjectile.GetFireRate());
     }
 
     public void CheckInput()
@@ -102,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (canFire)
             {
-                Instantiate(currentProjectile.gameObject, transform.position + (transform.forward * 0.5f), transform.rotation);
+                Instantiate(currentWeapon.GetProjectile(), currentWeapon.GetNozzle().position + (transform.forward * 0.5f), transform.rotation);
                 canFire = false;
             }
         }
@@ -113,13 +116,19 @@ public class PlayerMovement : MonoBehaviour
         if (gameManager.inverted)
         {
             invertValue = -1;
-            currentProjectile = projectileInverted;
+            currentWeapon = cakeZooka;
+
+            machineFork.gameObject.SetActive(false);
+            cakeZooka.gameObject.SetActive(true);
         }
 
         else
         {
             invertValue = 1;
-            currentProjectile = projectile;
+            currentWeapon = machineFork;
+
+            machineFork.gameObject.SetActive(true);
+            cakeZooka.gameObject.SetActive(false);
         }
     }
 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8058057951384076007}
   - component: {fileID: 4477007419755437862}
   m_Layer: 6
-  m_Name: Projectile
+  m_Name: ForkProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

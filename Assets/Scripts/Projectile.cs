@@ -8,7 +8,6 @@ public abstract class Projectile : MonoBehaviour
 { 
     public abstract void fired();
 
-    public abstract float GetFireRate();
     public abstract int GetDamage();
 
     public abstract void OnTriggerEnter(Collider other);       

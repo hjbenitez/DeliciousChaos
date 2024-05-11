@@ -8,10 +8,13 @@ public class EnemyMovement : MonoBehaviour
 {
     public NavMeshAgent agent;
     public List<Rigidbody> rbs;
+    public List<GameObject> NormalTextures;
+    public List<GameObject> InverseTextures;
     public GameObject damager; 
     public GameObject enemyHealthBarPrefab;
     public Transform healthBarSpawnLocation;
     private GameObject healthCanvas;
+    public Animator anim;
 
     private Image hpBar;
     private GameObject player;
@@ -19,10 +22,41 @@ public class EnemyMovement : MonoBehaviour
     public float maxHealth;
     private float currentHealth;
     private bool dead;
+    public int scoreAmount;
+
+    private bool invertChanged;
+    private bool prevInvertValue;
     
     // Start is called before the first frame update
     void Start()
     {
+        prevInvertValue = StaticValues.inverted;
+
+        if (StaticValues.inverted)
+        {
+            foreach (GameObject obj in InverseTextures)
+            {
+                obj.SetActive(true);
+            }
+
+            foreach (GameObject obj in NormalTextures)
+            {
+                obj.SetActive(false);
+            }
+        }
+        else if (!StaticValues.inverted)
+        {
+            foreach (GameObject obj in InverseTextures)
+            {
+                obj.SetActive(false);
+            }
+
+            foreach (GameObject obj in NormalTextures)
+            {
+                obj.SetActive(true);
+            }
+        }
+
         currentHealth = maxHealth;
         
         player = GameObject.FindGameObjectWithTag("Player");
@@ -46,6 +80,31 @@ public class EnemyMovement : MonoBehaviour
         {
             TakeDamage(1);
         }
+
+        if (StaticValues.inverted)
+        {
+            foreach (GameObject obj in InverseTextures)
+            {
+                obj.SetActive(true);
+            }
+
+            foreach (GameObject obj in NormalTextures)
+            {
+                obj.SetActive(false);
+            }
+        }
+        else if (!StaticValues.inverted)
+        {
+            foreach (GameObject obj in InverseTextures)
+            {
+                obj.SetActive(false);
+            }
+
+            foreach (GameObject obj in NormalTextures)
+            {
+                obj.SetActive(true);
+            }
+        }
     }
 
     public void TakeDamage(int damage)
@@ -55,10 +114,13 @@ public class EnemyMovement : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            StaticValues.score += scoreAmount;
+            
             dead = true;
             Destroy(agent);
             Destroy(healthCanvas);
             Destroy(damager);
+            Destroy(anim);
             Destroy(this.gameObject.GetComponent<BoxCollider>());
 
             float minForce = 0;

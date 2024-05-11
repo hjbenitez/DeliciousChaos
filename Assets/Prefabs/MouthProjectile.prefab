@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7503141895556119238}
   - component: {fileID: 6996725791328069590}
   m_Layer: 6
-  m_Name: Bazooka
+  m_Name: MouthProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

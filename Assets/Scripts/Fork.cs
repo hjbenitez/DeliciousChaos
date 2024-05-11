@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MachineGun : Projectile
+public class Fork : Projectile
 {
     Rigidbody rb;
     public float speed = 10f;
@@ -32,11 +32,6 @@ public class MachineGun : Projectile
     public override void fired()
     {
         rb.velocity = transform.forward * speed;
-    }
-
-    public override float GetFireRate()
-    {
-        return fireRate;
     }
 
     public override int GetDamage()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Bazooka : Projectile
@@ -13,6 +14,7 @@ public class Bazooka : Projectile
     float lifeTimer = 0f;
 
     float initialSpeedTime = 0;
+    float damageRadius = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,7 @@ public class Bazooka : Projectile
 
         else
         {
-            rb.velocity = Vector3.Lerp(transform.forward * 2.0f, transform.forward * speed, (lifeTimer - initialSpeedTime) /1f);
+            rb.velocity = Vector3.Lerp(transform.forward * 2.0f, transform.forward * speed, (lifeTimer - initialSpeedTime) / 1f);
         }
     }
 
@@ -54,5 +56,29 @@ public class Bazooka : Projectile
     public override int GetDamage()
     {
         return damage;
+    }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer != 3 && other.gameObject.layer != 8 && other.gameObject.layer != 9)
+        {
+            Collider[] enemies = Physics.OverlapSphere(transform.position, damageRadius);
+            foreach(Collider collider in enemies)
+            {
+                if (collider.gameObject.tag == "Enemy")
+                {
+                    print(collider.gameObject.name);
+                    collider.gameObject.GetComponent<EnemyMovement>().TakeDamage(damage);
+                }
+            }
+
+            Destroy(gameObject);
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, damageRadius);
+        Gizmos.color = Color.yellow;
     }
 }

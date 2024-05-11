@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     public float maxHealth;
     private float currentHealth;
     private bool dead;
+    public int scoreAmount;
 
     private bool invertChanged;
     private bool prevInvertValue;
@@ -113,6 +114,8 @@ public class EnemyMovement : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            StaticValues.score += scoreAmount;
+            
             dead = true;
             Destroy(agent);
             Destroy(healthCanvas);

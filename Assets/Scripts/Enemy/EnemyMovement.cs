@@ -105,6 +105,12 @@ public class EnemyMovement : MonoBehaviour
                 obj.SetActive(true);
             }
         }
+
+
+        if(StaticValues.playerDead == true)
+        {
+            TakeDamage(10000);
+        }
     }
 
     public void TakeDamage(int damage)

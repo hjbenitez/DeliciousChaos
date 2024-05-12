@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nozzle: {fileID: 3631029959429465853}
-  projectile: {fileID: 4477007419755437862, guid: 8ca80eca064e91a4a97242fe41c9f2b0, type: 3}
+  projectile: {fileID: 2947420549252135110, guid: 8ca80eca064e91a4a97242fe41c9f2b0, type: 3}
   fireRate: 0.25
 --- !u!1 &2697082808564367535
 GameObject:

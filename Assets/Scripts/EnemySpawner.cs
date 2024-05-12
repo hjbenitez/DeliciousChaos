@@ -20,13 +20,12 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (spawnTimer > spawnTime)
         {
-            if(StaticValues.enemyCount < StaticValues.maxEnemyCount && StaticValues.CheckLayerCount(gameObject.layer))
+            if(StaticValues.enemyCount < StaticValues.maxEnemyCount && StaticValues.CheckLayerCount(enemy.layer))
             {
                 Instantiate(enemy, transform.position, transform.rotation);
-                StaticValues.IncremenentEnemyCounter(gameObject.layer);
+                StaticValues.IncremenentEnemyCounter(enemy.layer);
             }
 
             spawnTimer = 0;

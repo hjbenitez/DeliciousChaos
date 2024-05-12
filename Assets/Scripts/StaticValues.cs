@@ -30,18 +30,19 @@ public static class StaticValues
         wave = 1;
         sliceManWaveCount = 5;
         birthdayBoyWaveCount = 1;
+        enemyCount = 6;
         maxEnemyCount = 40;
     }
 
     public static void NextWave()
     {
         sliceManWaveCount = Mathf.RoundToInt((sliceManWaveCount * 3) / 2);
-        birthdayBoyWaveCount = Mathf.RoundToInt((birthdayBoyWaveCount * 3) / 2);
+        birthdayBoyWaveCount = Mathf.RoundToInt(((birthdayBoyWaveCount * 3) / 2) + 1);
         wave++;
 
         birthdayBoyCounter = 0;
         sliceManCounter = 0;
-        enemyCount = 0;
+        enemyCount = sliceManWaveCount + birthdayBoyWaveCount;
     }
 
     public static void AddScore(int score)
@@ -60,8 +61,6 @@ public static class StaticValues
         {
             sliceManCounter++;
         }
-
-        enemyCount++;
     }
 
     public static void DecrementEnemyCounter()

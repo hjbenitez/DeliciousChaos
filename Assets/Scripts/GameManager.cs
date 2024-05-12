@@ -1,58 +1,89 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public bool inverted = false;
 
-    private bool offCooldwon = true;
+    private bool offCooldown = true;
+
+    public Image abilityImage;
+
+    public float cooldown = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine("UpdateCooldown");
+        abilityImage.fillAmount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ToggleDimension();
+        //ToggleDimension();
+
+        UpdateIcon();
 
         StaticValues.inverted = inverted;
 
-        Debug.Log(offCooldwon);
+        Debug.Log(offCooldown);
     }
 
-    public void ToggleDimension()
+    //public void ToggleDimension()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Mouse1) && offCooldown == true) //flip dimension
+    //    {
+    //        inverted = !inverted;
+    //        GetComponent<PlayerMovement>().Invert();
+
+    //        StartCoroutine("UpdateCooldown");
+
+    //        TimeSlow();
+
+    //        Invoke("TimeRecovery", 1f);
+
+    //        Invoke("ResetCooldown", 4f);
+    //    }
+    //}
+
+    public void UpdateIcon()
     {
-        if (offCooldwon == true)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && offCooldown == true)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1)) //flip dimension
+            inverted = !inverted;
+            GetComponent<PlayerMovement>().Invert();
+
+            TimeSlow();
+
+            Invoke("TimeRecovery", 1f);
+
+            offCooldown = false;
+            abilityImage.fillAmount = 1;
+        }
+
+        if (offCooldown == false)
+        {
+            abilityImage.fillAmount -= 1 / cooldown * Time.deltaTime;
+
+            if(abilityImage.fillAmount <= 0)
             {
-                inverted = !inverted;
-                GetComponent<PlayerMovement>().Invert();
-
-                StartCoroutine("UpdateCooldown");
-
-                TimeSlow();
-
-                Invoke("TimeRecovery", 1f);
-                
-                Invoke("ResetCooldown", 4f);
+                abilityImage.fillAmount = 0;
+                offCooldown = true;
             }
         }
     }
 
     private IEnumerator UpdateCooldown()
     {
-        offCooldwon = false;
+        offCooldown = false;
         yield return new WaitForSeconds(5f);
     }
 
     public void ResetCooldown()
     {
-        offCooldwon = true;
+        offCooldown = true;
     }
     
     public void TimeSlow()

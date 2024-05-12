@@ -424,7 +424,8 @@ GameObject:
   - component: {fileID: 9132133159872823167}
   - component: {fileID: 1822660417711192116}
   - component: {fileID: 9008047470806325088}
-  m_Layer: 7
+  - component: {fileID: 923157378091533865}
+  m_Layer: 10
   m_Name: CakeyBoi
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -574,6 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1822660417711192116}
+  offsetInvert: 0
   rbs:
   - {fileID: 7176408048839873868}
   - {fileID: 1197632390975827680}
@@ -586,12 +588,33 @@ MonoBehaviour:
   - {fileID: 1506824725868954456}
   - {fileID: 8384651198506518906}
   - {fileID: 2669002313590718797}
+  enemyInvert: {fileID: 923157378091533865}
   damager: {fileID: 3095494830204082531}
   enemyHealthBarPrefab: {fileID: 5479687166012945841, guid: 31bcf139bed669649a23a6b097988c7f, type: 3}
   healthBarSpawnLocation: {fileID: 7572022722290830895}
   anim: {fileID: 8942604904431133359}
   maxHealth: 3
   scoreAmount: 50
+--- !u!114 &923157378091533865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406232061913874935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee542557589cf84292b25830a2a4dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTextures:
+  - {fileID: 3775207536904189890}
+  - {fileID: 8761861007039151416}
+  - {fileID: 2742862087635792334}
+  InverseTextures:
+  - {fileID: 1506824725868954456}
+  - {fileID: 8384651198506518906}
+  - {fileID: 2669002313590718797}
 --- !u!1 &3775207536904189890
 GameObject:
   m_ObjectHideFlags: 0

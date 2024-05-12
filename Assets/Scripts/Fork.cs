@@ -41,11 +41,11 @@ public class Fork : Projectile
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer != 3 && other.gameObject.layer != 8)
+        if (other.gameObject.layer != 3 && other.gameObject.layer != 8 && other.gameObject.layer != 9 && other.gameObject.layer != 11)
         {
             if(other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<EnemyMovement>().TakeDamage(damage);
+                other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
             }
 
             Destroy(gameObject);

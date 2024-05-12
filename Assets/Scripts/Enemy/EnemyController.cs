@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public bool offsetInvert;
     public List<Rigidbody> rbs;
     public List<GameObject> NormalTextures;
     public List<GameObject> InverseTextures;
+    public EnemyInvert enemyInvert;
     public GameObject damager; 
     public GameObject enemyHealthBarPrefab;
     public Transform healthBarSpawnLocation;
@@ -32,31 +34,6 @@ public class EnemyMovement : MonoBehaviour
     {
         prevInvertValue = StaticValues.inverted;
 
-        if (StaticValues.inverted)
-        {
-            foreach (GameObject obj in InverseTextures)
-            {
-                obj.SetActive(true);
-            }
-
-            foreach (GameObject obj in NormalTextures)
-            {
-                obj.SetActive(false);
-            }
-        }
-        else if (!StaticValues.inverted)
-        {
-            foreach (GameObject obj in InverseTextures)
-            {
-                obj.SetActive(false);
-            }
-
-            foreach (GameObject obj in NormalTextures)
-            {
-                obj.SetActive(true);
-            }
-        }
-
         currentHealth = maxHealth;
         
         player = GameObject.FindGameObjectWithTag("Player");
@@ -71,6 +48,8 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemyInvert.InvertStatus();
+
         if (!dead)
         {
             agent.SetDestination(player.transform.position);
@@ -80,33 +59,7 @@ public class EnemyMovement : MonoBehaviour
         {
             TakeDamage(1);
         }
-
-        if (StaticValues.inverted)
-        {
-            foreach (GameObject obj in InverseTextures)
-            {
-                obj.SetActive(true);
-            }
-
-            foreach (GameObject obj in NormalTextures)
-            {
-                obj.SetActive(false);
-            }
-        }
-        else if (!StaticValues.inverted)
-        {
-            foreach (GameObject obj in InverseTextures)
-            {
-                obj.SetActive(false);
-            }
-
-            foreach (GameObject obj in NormalTextures)
-            {
-                obj.SetActive(true);
-            }
-        }
-
-
+            
         if(StaticValues.playerDead == true)
         {
             TakeDamage(10000);

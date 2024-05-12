@@ -57,15 +57,15 @@ public class Mouth : Projectile
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer != 3 && other.gameObject.layer != 8 && other.gameObject.layer != 9)
+        if (other.gameObject.layer != 3 && other.gameObject.layer != 8 && other.gameObject.layer != 9 && other.gameObject.layer != 10)
         {
             Collider[] enemies = Physics.OverlapSphere(transform.position, damageRadius);
             foreach(Collider collider in enemies)
             {
-                if (collider.gameObject.tag == "Enemy")
+                if (collider.gameObject.tag == "Enemy" && collider.gameObject.layer == 11)
                 {
                     print(collider.gameObject.name);
-                    collider.gameObject.GetComponent<EnemyMovement>().TakeDamage(damage);
+                    collider.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
                 }
             }
 

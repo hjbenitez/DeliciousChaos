@@ -96,7 +96,8 @@ GameObject:
   - component: {fileID: 3861955775763140705}
   - component: {fileID: 7216930870052635523}
   - component: {fileID: 1054999711213596931}
-  m_Layer: 0
+  - component: {fileID: -3902497002432572074}
+  m_Layer: 11
   m_Name: BirthdayBoy_enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -181,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1054999711213596931}
+  offsetInvert: 1
   rbs:
   - {fileID: 2780620155072287598}
   - {fileID: 7880956448081166966}
@@ -208,6 +210,7 @@ MonoBehaviour:
   - {fileID: 1154504537465941598}
   - {fileID: 2842742265281275280}
   - {fileID: 5815874193783969299}
+  enemyInvert: {fileID: -3902497002432572074}
   damager: {fileID: 2680917283026251128}
   enemyHealthBarPrefab: {fileID: 5479687166012945841, guid: 31bcf139bed669649a23a6b097988c7f, type: 3}
   healthBarSpawnLocation: {fileID: 2104552817667355675}
@@ -236,6 +239,36 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-3902497002432572074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637623681509443989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTextures:
+  - {fileID: 3146799890652117714}
+  - {fileID: 1227825753352567855}
+  - {fileID: 1372693247350825637}
+  - {fileID: 1266190381892779491}
+  - {fileID: 7201527548681311445}
+  - {fileID: 6986361167403736071}
+  - {fileID: 1401150757609504294}
+  - {fileID: 2832258670809803300}
+  InverseTextures:
+  - {fileID: 701812380967229853}
+  - {fileID: 7156798827440174624}
+  - {fileID: 5338442938796291994}
+  - {fileID: 3262992206965499727}
+  - {fileID: 8925834635151857616}
+  - {fileID: 1154504537465941598}
+  - {fileID: 2842742265281275280}
+  - {fileID: 5815874193783969299}
 --- !u!1 &701812380967229853
 GameObject:
   m_ObjectHideFlags: 0

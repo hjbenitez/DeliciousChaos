@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public float cooldown = 5f;
 
+    public AudioSource music;
+    public AudioSource musicInvert;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,18 @@ public class GameManager : MonoBehaviour
         UpdateIcon();
 
         StaticValues.inverted = inverted;
+
+        if(StaticValues.inverted)
+        {
+            music.volume = 0f;
+            musicInvert.volume = 0.5f;
+        }
+
+        else
+        {
+            music.volume = 0.5f;
+            musicInvert.volume = 0f;
+        }
 
         Debug.Log(offCooldown);
     }

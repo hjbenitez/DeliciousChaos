@@ -53,7 +53,6 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
-        StaticValues.playerDead = false;
         SceneManager.LoadScene("YorickBlockOutFinal");
     }
 

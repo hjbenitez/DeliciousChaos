@@ -99,7 +99,6 @@ MonoBehaviour:
   lifeTime: 5
   damage: 1
   fireRate: 0.25
-  cakeSplatter: {fileID: 5706996752348230326, guid: 9d7457b661c72fc42a874c4986a084f5, type: 3}
 --- !u!1001 &6969628317243371859
 PrefabInstance:
   m_ObjectHideFlags: 0

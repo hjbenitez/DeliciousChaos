@@ -8,7 +8,6 @@ public class Fork : Projectile
     public float lifeTime = 5f;
     public int damage = 1;
     public float fireRate = 0.25f;
-    public ParticleSystem cakeSplatter;
 
     Rigidbody rb;
     float lifeTimer = 0f;
@@ -48,7 +47,6 @@ public class Fork : Projectile
             if(other.gameObject.tag == "Enemy")
             {
                 other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
-                Instantiate(cakeSplatter, transform.position, transform.rotation);
             }
 
             Destroy(gameObject);

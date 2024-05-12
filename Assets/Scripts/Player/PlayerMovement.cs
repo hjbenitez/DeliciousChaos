@@ -11,9 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public Weapon cakeZooka;
     Weapon currentWeapon;
 
+    public List<Rigidbody> rbs;
+
     public float movementSpeed;
     private float moveHorizontal = 1;
     private float moveVertical = 1;
+    private bool dead;
+    public Animator anim;
 
     private GameManager gameManager;
 
@@ -32,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
     //Mouse
     Vector3 mouseDirection;
 
+    private int numberOfTricks;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,23 +49,44 @@ public class PlayerMovement : MonoBehaviour
         cakeZooka.gameObject.SetActive(false);
 
         health = maxHealth;
+
+        foreach (Rigidbody rb in rbs)
+        {
+            rb.gameObject.GetComponent<Collider>().isTrigger = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         float midPoint = (transform.position - Camera.main.transform.position).magnitude * 1f;
         mouseDirection = mouseRay.origin + mouseRay.direction * midPoint;
 
         mouseDirection.y = transform.position.y;
 
-        this.transform.LookAt(mouseDirection);
-
-
-        //if (StaticValues.levelStarted)
+        if (!dead)
         {
+            this.transform.LookAt(mouseDirection);
+        }
 
+
+
+        if (health <= 0 && !dead)
+        {
+            AudioSource ass = GetComponent<AudioSource>();
+            ass.time = 0.5f;
+            ass.Play();
+
+            foreach(Rigidbody rb in rbs)
+            {
+                rb.isKinematic = false;
+                rb.gameObject.GetComponent<Collider>().isTrigger = false;
+                rb.AddForce(new Vector3(Random.Range(1, 3), Random.Range(1, 3), Random.Range(1, 3)), ForceMode.Impulse);
+            }
+
+            StaticValues.playerDead = true;
+            dead = true;
         }
 
         CheckInput();
@@ -74,6 +101,29 @@ public class PlayerMovement : MonoBehaviour
                 canFire = true;
                 fireRateTimer = 0;
             }
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            AudioSource ass2HUH = anim.gameObject.GetComponent<AudioSource>();
+            ass2HUH.pitch = 1;
+
+            int tricktype = Random.Range(0, 2);
+
+            if (numberOfTricks >= 8)
+            {
+                tricktype = 2;
+                numberOfTricks = 0;
+                ass2HUH.pitch = 0.5f;
+            }
+
+            ass2HUH.time = 0;
+            ass2HUH.Play();
+
+            anim.SetInteger("TrickNum", tricktype);
+            anim.SetTrigger("Trick");
+
+            numberOfTricks++;
         }
     }
 

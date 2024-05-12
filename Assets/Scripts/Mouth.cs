@@ -12,8 +12,9 @@ public class Mouth : Projectile
     public int damage = 3;
     public float fireRate = 2.5f;
     public ParticleSystem boom;
-    float lifeTimer = 0f;
+    public AudioClip impactSFX;
 
+    float lifeTimer = 0f;
     float initialSpeedTime = 0;
     float damageRadius = 5f;
     
@@ -75,7 +76,14 @@ public class Mouth : Projectile
             }
 
             ParticleSystem temp = Instantiate(boom, transform.position, transform.rotation);
+            AudioSource tempSource = temp.AddComponent<AudioSource>();
+            tempSource.clip = impactSFX;
+            tempSource.reverbZoneMix = 1f;
+            tempSource.pitch = 0.75f;
+
+            tempSource.Play();
             temp.Play();
+            
             Destroy(gameObject);
         }
     }

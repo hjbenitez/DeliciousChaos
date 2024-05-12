@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Fork : Projectile
 {
-    Rigidbody rb;
     public float speed = 10f;
     public float lifeTime = 5f;
     public int damage = 1;
     public float fireRate = 0.25f;
+
+    Rigidbody rb;
     float lifeTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
         fired();
-
     }
 
     void Update()

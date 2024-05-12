@@ -19,7 +19,7 @@ public class MenuButtonManager : MonoBehaviour
 
     public void ClickPlay()
     {
-        SceneManager.LoadScene("YorickBlockOutTest");
+        SceneManager.LoadScene("YorickBlockOutFinal");
     }
 
     public void ClickExit()

@@ -26,4 +26,19 @@ public class MenuButtonManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ClickReturnMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ClickMenuOptions()
+    {
+        SceneManager.LoadScene("MenuOptions");
+    }
+
+    public void ClickCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }

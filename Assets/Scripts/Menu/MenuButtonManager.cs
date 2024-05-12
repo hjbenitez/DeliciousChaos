@@ -19,11 +19,26 @@ public class MenuButtonManager : MonoBehaviour
 
     public void ClickPlay()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("YorickBlockOutTest");
     }
 
     public void ClickExit()
     {
         Application.Quit();
+    }
+
+    public void ClickReturnMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ClickMenuOptions()
+    {
+        SceneManager.LoadScene("MenuOptions");
+    }
+
+    public void ClickCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }

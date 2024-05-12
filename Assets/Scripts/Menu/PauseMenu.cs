@@ -36,7 +36,7 @@ public class PauseMenu : MonoBehaviour
 
         if (StaticValues.playerDead && !dead)
         {
-            scoreText.text = "Waves Survived: " + StaticValues.wave.ToString();
+            wavesText.text = "Waves Survived: " + StaticValues.wave.ToString();
             scoreText.text = "Score: " + StaticValues.totalScore.ToString();
 
             deathUI.SetActive(true);

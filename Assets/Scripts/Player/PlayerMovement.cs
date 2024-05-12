@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float moveVertical = 1;
     private bool dead;
     public Animator anim;
+    public AudioSource hitSound;
+    public AudioClip[] hitSoundClips;
 
     private GameManager gameManager;
 
@@ -86,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
             AudioSource ass = GetComponent<AudioSource>();
             ass.time = 0.5f;
             ass.Play();
+            hitSound.Stop();
+            gameManager.music.Stop();
 
             foreach(Rigidbody rb in rbs)
             {
@@ -197,6 +201,9 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.layer == 8)
         {
             health--;
+            int i = Random.Range(0, 3);
+            hitSound.clip = hitSoundClips[i];
+            hitSound.Play();
         }
     }
 }

@@ -86,6 +86,7 @@ public class EnemyController : MonoBehaviour
             Destroy(damager);
             Destroy(anim);
             Destroy(this.gameObject.GetComponent<BoxCollider>());
+            StaticValues.DecrementEnemyCounter();
 
             transform.DetachChildren();
             float minForce = 3f;

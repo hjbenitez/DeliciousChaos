@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 737037983262804097}
   - component: {fileID: 3253282045920394585}
   - component: {fileID: 8498924182795692569}
+  - component: {fileID: 1505182575112738502}
   m_Layer: 9
   m_Name: CakeLegLeft
   m_TagString: Untagged
@@ -83,6 +84,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.11, y: 0.90480524, z: 0.8909606}
   m_Center: {x: 0.20999998, y: -0.8808045, z: -0.9154803}
+--- !u!114 &1505182575112738502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598853998344931760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 1372693247350825637}
+  InverseTexture: {fileID: 5338442938796291994}
 --- !u!1 &637623681509443989
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +111,6 @@ GameObject:
   - component: {fileID: 3861955775763140705}
   - component: {fileID: 7216930870052635523}
   - component: {fileID: 1054999711213596931}
-  - component: {fileID: -3902497002432572074}
   m_Layer: 11
   m_Name: BirthdayBoy_enemy
   m_TagString: Enemy
@@ -210,13 +224,12 @@ MonoBehaviour:
   - {fileID: 1154504537465941598}
   - {fileID: 2842742265281275280}
   - {fileID: 5815874193783969299}
-  enemyInvert: {fileID: -3902497002432572074}
+  enemyInvert: {fileID: 0}
   damager: {fileID: 2680917283026251128}
   enemyHealthBarPrefab: {fileID: 5479687166012945841, guid: 31bcf139bed669649a23a6b097988c7f, type: 3}
   healthBarSpawnLocation: {fileID: 2104552817667355675}
   anim: {fileID: 8201947712086849799}
   maxHealth: 6
-  scoreAmount: 100
 --- !u!195 &1054999711213596931
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -239,36 +252,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-3902497002432572074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637623681509443989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NormalTextures:
-  - {fileID: 3146799890652117714}
-  - {fileID: 1227825753352567855}
-  - {fileID: 1372693247350825637}
-  - {fileID: 1266190381892779491}
-  - {fileID: 7201527548681311445}
-  - {fileID: 6986361167403736071}
-  - {fileID: 1401150757609504294}
-  - {fileID: 2832258670809803300}
-  InverseTextures:
-  - {fileID: 701812380967229853}
-  - {fileID: 7156798827440174624}
-  - {fileID: 5338442938796291994}
-  - {fileID: 3262992206965499727}
-  - {fileID: 8925834635151857616}
-  - {fileID: 1154504537465941598}
-  - {fileID: 2842742265281275280}
-  - {fileID: 5815874193783969299}
 --- !u!1 &701812380967229853
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +346,7 @@ GameObject:
   - component: {fileID: 3784286395137659401}
   - component: {fileID: 987380234473256902}
   - component: {fileID: 8041510677734206615}
+  - component: {fileID: 2930500207603460228}
   m_Layer: 9
   m_Name: CakeLegRight
   m_TagString: Untagged
@@ -435,6 +419,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.84425956, y: 0.9313332, z: 0.91911227}
   m_Center: {x: 0.14269099, y: -0.85433304, z: 0.8004438}
+--- !u!114 &2930500207603460228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965470916504553646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 1266190381892779491}
+  InverseTexture: {fileID: 3262992206965499727}
 --- !u!1 &1154504537465941598
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +859,7 @@ GameObject:
   - component: {fileID: 7822421887536411904}
   - component: {fileID: 5687699568812205160}
   - component: {fileID: 883628648941683393}
+  - component: {fileID: 5876763461930010109}
   m_Layer: 9
   m_Name: RightEye
   m_TagString: Untagged
@@ -935,6 +934,20 @@ CapsuleCollider:
   m_Height: 0.27
   m_Direction: 1
   m_Center: {x: -0.8, y: 0.33, z: 0.95}
+--- !u!114 &5876763461930010109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970553167920555713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 1401150757609504294}
+  InverseTexture: {fileID: 2842742265281275280}
 --- !u!1 &2680917283026251128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1230,7 @@ GameObject:
   - component: {fileID: 6678869216066105715}
   - component: {fileID: 1431259559855384187}
   - component: {fileID: 387522769848808801}
+  - component: {fileID: 5228256318492777838}
   m_Layer: 9
   m_Name: CakeTop
   m_TagString: Untagged
@@ -1289,6 +1303,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9476018, y: 1.5575608, z: 1.8464559}
   m_Center: {x: 0.18491274, y: 2.7715578, z: -0.046062123}
+--- !u!114 &5228256318492777838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2934687384094485096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 2832258670809803300}
+  InverseTexture: {fileID: 5815874193783969299}
 --- !u!1 &3146799890652117714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,6 +1494,7 @@ GameObject:
   - component: {fileID: 3343593312191007845}
   - component: {fileID: 5069403942661558284}
   - component: {fileID: 7589460585348614090}
+  - component: {fileID: 400365360286675434}
   m_Layer: 9
   m_Name: Plate
   m_TagString: Untagged
@@ -1538,6 +1567,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.5936759, y: 0.101682074, z: 3.5077026}
   m_Center: {x: 0.23684, y: -0.32855356, z: -0.07037358}
+--- !u!114 &400365360286675434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337294838264882070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 6986361167403736071}
+  InverseTexture: {fileID: 1154504537465941598}
 --- !u!1 &3370326136431697305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1592,7 @@ GameObject:
   - component: {fileID: 7681266187803516876}
   - component: {fileID: 2832821315334699869}
   - component: {fileID: 2780620155072287598}
+  - component: {fileID: 3196874666368188886}
   m_Layer: 9
   m_Name: CakeBottom
   m_TagString: Untagged
@@ -1621,6 +1665,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3196874666368188886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370326136431697305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 3146799890652117714}
+  InverseTexture: {fileID: 701812380967229853}
 --- !u!1 &5338442938796291994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,6 +1773,7 @@ GameObject:
   - component: {fileID: 3989528701996097156}
   - component: {fileID: 7880956448081166966}
   - component: {fileID: 3704073960030069764}
+  - component: {fileID: 3618381922277244933}
   m_Layer: 9
   m_Name: LeftEye
   m_TagString: Untagged
@@ -1789,6 +1848,20 @@ CapsuleCollider:
   m_Height: 0.49539417
   m_Direction: 1
   m_Center: {x: -0.81, y: 0.20999993, z: -1.0523027}
+--- !u!114 &3618381922277244933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729115311313681336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 1227825753352567855}
+  InverseTexture: {fileID: 7156798827440174624}
 --- !u!1 &5815874193783969299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,6 +2267,7 @@ GameObject:
   - component: {fileID: 1970429279595997424}
   - component: {fileID: 357031718528736454}
   - component: {fileID: 2362493066192617146}
+  - component: {fileID: 8928526616188247856}
   m_Layer: 9
   m_Name: CakeMiddle
   m_TagString: Untagged
@@ -2266,6 +2340,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2552056, y: 1.1377836, z: 2.5}
   m_Center: {x: 0.17760392, y: 1.3538917, z: 0}
+--- !u!114 &8928526616188247856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230709272638350161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde6c37d698a97e448f69ffdb44fd8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 7201527548681311445}
+  InverseTexture: {fileID: 8925834635151857616}
 --- !u!1 &7829615404927338630
 GameObject:
   m_ObjectHideFlags: 0

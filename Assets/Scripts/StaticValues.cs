@@ -5,6 +5,11 @@ using UnityEngine;
 public static class StaticValues
 {
     public static bool inverted;
-    public static int score;
+    public static int totalScore;
     public static bool playerDead;
+
+    public static void AddScore(int score)
+    {
+        totalScore += score;
+    }
 }

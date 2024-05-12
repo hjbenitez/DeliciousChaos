@@ -7,11 +7,7 @@ using UnityEngine.UI;
 public class EnemyController : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public bool offsetInvert;
     public List<Rigidbody> rbs;
-    public List<GameObject> NormalTextures;
-    public List<GameObject> InverseTextures;
-    public EnemyInvert enemyInvert;
     public GameObject damager; 
     public GameObject enemyHealthBarPrefab;
     public Transform healthBarSpawnLocation;
@@ -24,16 +20,10 @@ public class EnemyController : MonoBehaviour
     public float maxHealth;
     private float currentHealth;
     private bool dead;
-    public int scoreAmount;
-
-    private bool invertChanged;
-    private bool prevInvertValue;
     
     // Start is called before the first frame update
     void Start()
     {
-        prevInvertValue = StaticValues.inverted;
-
         currentHealth = maxHealth;
         
         player = GameObject.FindGameObjectWithTag("Player");
@@ -48,8 +38,6 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyInvert.InvertStatus();
-
         if (!dead)
         {
             agent.SetDestination(player.transform.position);
@@ -65,16 +53,14 @@ public class EnemyController : MonoBehaviour
             TakeDamage(10000);
         }
     }
-
+    
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         hpBar.fillAmount = (float)currentHealth / (float)maxHealth;
 
         if(currentHealth <= 0)
-        {
-            StaticValues.score += scoreAmount;
-            
+        { 
             dead = true;
             Destroy(agent);
             Destroy(healthCanvas);
@@ -82,8 +68,26 @@ public class EnemyController : MonoBehaviour
             Destroy(anim);
             Destroy(this.gameObject.GetComponent<BoxCollider>());
 
-            float minForce = 0;
+            transform.DetachChildren();
+            float minForce = 3f;
 
+            foreach(Rigidbody rigidbody in rbs)
+            {
+                float randomForce = Random.Range(minForce, 10f);
+
+                if (randomForce < 1)
+                {
+                    minForce = 1;
+                }
+
+                rigidbody.isKinematic = false;
+                rigidbody.AddForce((this.transform.position - player.transform.position).normalized * randomForce, ForceMode.Impulse);
+                rigidbody.gameObject.layer = 12;
+            }
+
+            Destroy(gameObject);
+
+            /*
             for (int i = 0; i < rbs.Count; i++)
             {
                 float randomForce = Random.Range(minForce, 2f);
@@ -95,15 +99,7 @@ public class EnemyController : MonoBehaviour
                 
                 rbs[i].isKinematic = false;
                 rbs[i].AddForce((this.transform.position - player.transform.position).normalized * (i * randomForce),  ForceMode.Impulse);
-            }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.layer == 6 && !dead)
-        {
-            //TakeDamage(other.gameObject.GetComponent<Projectile>().GetDamage());
-        }
+            }*/
+        }  
     }
 }

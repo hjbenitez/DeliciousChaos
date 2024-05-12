@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7413706708297730156}
-  - component: {fileID: 2947420549252135110}
   - component: {fileID: 62695940522710769}
   - component: {fileID: 5561782919699542437}
+  - component: {fileID: 2947420549252135110}
   m_Layer: 6
   m_Name: ForkProjectile
   m_TagString: Untagged
@@ -35,22 +35,6 @@ Transform:
   - {fileID: 7436464956678477496}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2947420549252135110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4154335981187481878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4952f0625e299e648b97153c4f8f1673, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  lifeTime: 5
-  damage: 1
-  fireRate: 0.25
 --- !u!54 &62695940522710769
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -99,6 +83,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08084228, y: 0.087871075, z: 0.6125723}
   m_Center: {x: 0, y: 0.0040617883, z: -0.29666913}
+--- !u!114 &2947420549252135110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4154335981187481878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4952f0625e299e648b97153c4f8f1673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  lifeTime: 5
+  damage: 1
+  fireRate: 0.25
 --- !u!1001 &6969628317243371859
 PrefabInstance:
   m_ObjectHideFlags: 0

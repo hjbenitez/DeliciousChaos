@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7436464956678477496}
@@ -98,7 +98,7 @@ MonoBehaviour:
   speed: 20
   lifeTime: 5
   damage: 1
-  fireRate: 0.25
+  fireRate: 0.1
   cakeSplatter: {fileID: 5706996752348230326, guid: 9d7457b661c72fc42a874c4986a084f5, type: 3}
 --- !u!1001 &6969628317243371859
 PrefabInstance:

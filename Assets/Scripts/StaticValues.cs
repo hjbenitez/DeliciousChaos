@@ -10,7 +10,6 @@ public static class StaticValues
     public static int wave;
 
     public static int enemyCount;
-    public static int wave;
     public static int numberOfEnemies;
 
     public static void AddScore(int score)

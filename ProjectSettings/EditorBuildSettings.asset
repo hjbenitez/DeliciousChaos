@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu UI/MainMenu.unity
     guid: 4215b927fb963ca4b94c8990d7210ee5
   - enabled: 1
-    path: Assets/Scenes/YorickLevelDesign/YorickBlockOutTest.unity
-    guid: afba18c2d4b202943b80ce0dd9bc8c37
+    path: Assets/Scenes/YorickLevelDesign/YorickBlockOutFinal.unity
+    guid: a51076ec29fdbd542a0fd30440d54ec4
   - enabled: 1
     path: Assets/Scenes/Menu UI/Credits.unity
     guid: 5104c90a2e632f04fafcdfa2f9587370

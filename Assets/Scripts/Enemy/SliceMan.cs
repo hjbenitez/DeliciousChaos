@@ -4,35 +4,37 @@ using UnityEngine;
 
 public class SliceMan : EnemyInvert
 {
-    public List<GameObject> NormalTextures;
-    public List<GameObject> InverseTextures;
+    public GameObject NormalTexture;
+    public GameObject InverseTexture;
+    bool prevInvertState;
+
+    private void Start()
+    {
+        prevInvertState = StaticValues.inverted;
+        InvertStatus();
+    }
+
+    private void Update()
+    {
+        if (prevInvertState != StaticValues.inverted)
+        {
+            InvertStatus();
+            prevInvertState = StaticValues.inverted;
+        }
+    }
 
     public override void InvertStatus()
     {
         if (StaticValues.inverted)
         {
-            foreach (GameObject obj in InverseTextures)
-            {
-                obj.SetActive(true);
-            }
-
-            foreach (GameObject obj in NormalTextures)
-            {
-                obj.SetActive(false);
-            }
+            InverseTexture.SetActive(true);
+            NormalTexture.SetActive(false);
         }
 
         else
         {
-            foreach (GameObject obj in InverseTextures)
-            {
-                obj.SetActive(false);
-            }
-
-            foreach (GameObject obj in NormalTextures)
-            {
-                obj.SetActive(true);
-            }
+            InverseTexture.SetActive(false);
+            NormalTexture.SetActive(true);
         }
     }
 }

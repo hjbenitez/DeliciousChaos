@@ -19,7 +19,7 @@ public class Scoreboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = StaticValues.score.ToString();
+        text.text = StaticValues.totalScore.ToString();
 
         hpBar.fillAmount = pm.health / pm.maxHealth;
     }

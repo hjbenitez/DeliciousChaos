@@ -424,7 +424,6 @@ GameObject:
   - component: {fileID: 9132133159872823167}
   - component: {fileID: 1822660417711192116}
   - component: {fileID: 9008047470806325088}
-  - component: {fileID: 923157378091533865}
   m_Layer: 10
   m_Name: CakeyBoi
   m_TagString: Enemy
@@ -575,46 +574,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1822660417711192116}
-  offsetInvert: 0
   rbs:
   - {fileID: 7176408048839873868}
   - {fileID: 1197632390975827680}
   - {fileID: 1592603404589388936}
-  NormalTextures:
-  - {fileID: 3775207536904189890}
-  - {fileID: 8761861007039151416}
-  - {fileID: 2742862087635792334}
-  InverseTextures:
-  - {fileID: 1506824725868954456}
-  - {fileID: 8384651198506518906}
-  - {fileID: 2669002313590718797}
-  enemyInvert: {fileID: 923157378091533865}
   damager: {fileID: 3095494830204082531}
   enemyHealthBarPrefab: {fileID: 5479687166012945841, guid: 31bcf139bed669649a23a6b097988c7f, type: 3}
   healthBarSpawnLocation: {fileID: 7572022722290830895}
   anim: {fileID: 8942604904431133359}
   maxHealth: 3
-  scoreAmount: 50
---- !u!114 &923157378091533865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3406232061913874935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ee542557589cf84292b25830a2a4dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NormalTextures:
-  - {fileID: 3775207536904189890}
-  - {fileID: 8761861007039151416}
-  - {fileID: 2742862087635792334}
-  InverseTextures:
-  - {fileID: 1506824725868954456}
-  - {fileID: 8384651198506518906}
-  - {fileID: 2669002313590718797}
 --- !u!1 &3775207536904189890
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +677,7 @@ GameObject:
   - component: {fileID: 6329767073136199560}
   - component: {fileID: 8691282993493612226}
   - component: {fileID: 1592603404589388936}
+  - component: {fileID: 988939706267452287}
   m_Layer: 9
   m_Name: Feets
   m_TagString: Untagged
@@ -781,6 +750,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &988939706267452287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981022593657345635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee542557589cf84292b25830a2a4dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 2742862087635792334}
+  InverseTexture: {fileID: 2669002313590718797}
 --- !u!1 &5167695566888028382
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,6 +775,7 @@ GameObject:
   - component: {fileID: 6637078322841201704}
   - component: {fileID: 8679228085100837056}
   - component: {fileID: 7176408048839873868}
+  - component: {fileID: 4160181604044244125}
   m_Layer: 9
   m_Name: Cake
   m_TagString: Untagged
@@ -864,6 +848,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4160181604044244125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5167695566888028382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee542557589cf84292b25830a2a4dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 3775207536904189890}
+  InverseTexture: {fileID: 1506824725868954456}
 --- !u!1 &6454821050545406998
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +873,7 @@ GameObject:
   - component: {fileID: 3664587086855442999}
   - component: {fileID: 1277401031870830320}
   - component: {fileID: 1197632390975827680}
+  - component: {fileID: 2259896953355294980}
   m_Layer: 9
   m_Name: Eyes
   m_TagString: Untagged
@@ -947,6 +946,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2259896953355294980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454821050545406998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee542557589cf84292b25830a2a4dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalTexture: {fileID: 8761861007039151416}
+  InverseTexture: {fileID: 8384651198506518906}
 --- !u!1 &7879692162949051514
 GameObject:
   m_ObjectHideFlags: 0

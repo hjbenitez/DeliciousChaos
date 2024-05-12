@@ -64,8 +64,13 @@ public class Mouth : Projectile
             {
                 if (collider.gameObject.tag == "Enemy" && collider.gameObject.layer == 11)
                 {
-                    print(collider.gameObject.name);
                     collider.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+                }
+
+                else if (collider.gameObject.layer == 12)
+                {
+                    StaticValues.AddScore(100);
+                    Destroy(collider.gameObject);
                 }
             }
 

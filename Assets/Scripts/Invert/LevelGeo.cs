@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SliceMan : EnemyInvert
+public class LevelGeo : Invert
 {
-    public GameObject NormalTexture;
-    public GameObject InverseTexture;
+    public Material normal;
+    public Material inverse;
     bool prevInvertState;
 
     private void Start()
@@ -22,19 +22,16 @@ public class SliceMan : EnemyInvert
             prevInvertState = StaticValues.inverted;
         }
     }
-
     public override void InvertStatus()
     {
         if (StaticValues.inverted)
         {
-            InverseTexture.SetActive(true);
-            NormalTexture.SetActive(false);
+            gameObject.GetComponent<MeshRenderer>().material = inverse;
         }
 
         else
         {
-            InverseTexture.SetActive(false);
-            NormalTexture.SetActive(true);
+            gameObject.GetComponent<MeshRenderer>().material = normal;
         }
     }
 }

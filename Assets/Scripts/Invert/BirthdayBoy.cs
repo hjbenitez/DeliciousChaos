@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirthdayBoy : EnemyInvert
+public class BirthdayBoy : Invert
 {
     public GameObject NormalTexture;
     public GameObject InverseTexture;

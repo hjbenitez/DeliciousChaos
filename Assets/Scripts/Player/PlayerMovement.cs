@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerMovement : MonoBehaviour
@@ -43,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         gameManager = gameObject.GetComponent<GameManager>();
-        currentWeapon = machineFork;
 
+        currentWeapon = machineFork;
         machineFork.gameObject.SetActive(true);
         cakeZooka.gameObject.SetActive(false);
 
@@ -158,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
             if (canFire)
             {
                 Instantiate(currentWeapon.GetProjectile(), currentWeapon.GetNozzle().position + (transform.forward * 0.5f), transform.rotation);
+                currentWeapon.PlaySFX();
                 canFire = false;
             }
         }

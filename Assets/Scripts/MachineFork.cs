@@ -7,6 +7,7 @@ public class MachineFork : Weapon
     public Transform nozzle;
     public Projectile projectile;
     public float fireRate;
+    public AudioSource source;
 
     public override Transform GetNozzle()
     {
@@ -21,5 +22,10 @@ public class MachineFork : Weapon
     public override float GetFireRate()
     {
         return fireRate;
+    }
+
+    public override void PlaySFX()
+    {
+        source.Play();
     }
 }

@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     public Transform healthBarSpawnLocation;
     private GameObject healthCanvas;
     public Animator anim;
+    public AudioSource source;
+    public AudioClip[] deathSounds;
 
     private Image hpBar;
     private GameObject player;
@@ -20,6 +22,7 @@ public class EnemyController : MonoBehaviour
     public float maxHealth;
     private float currentHealth;
     private bool dead;
+    private bool deathSound;
     
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,22 @@ public class EnemyController : MonoBehaviour
         if (!dead)
         {
             agent.SetDestination(player.transform.position);
+        }
+
+        else
+        {
+            if(!deathSound)
+            {
+                int sound = Random.Range(0, 3);
+                source.clip = deathSounds[sound];
+                source.Play();
+                deathSound = true;
+            }
+
+            if(deathSound && !source.isPlaying)
+            {
+                Destroy(gameObject);
+            }
         }
 
         if (Input.GetKeyDown("h"))
@@ -84,8 +103,6 @@ public class EnemyController : MonoBehaviour
                 rigidbody.AddForce((this.transform.position - player.transform.position).normalized * randomForce, ForceMode.Impulse);
                 rigidbody.gameObject.layer = 12;
             }
-
-            Destroy(gameObject);
 
             /*
             for (int i = 0; i < rbs.Count; i++)

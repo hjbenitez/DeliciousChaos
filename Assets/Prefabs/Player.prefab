@@ -701,6 +701,7 @@ MonoBehaviour:
   anim: {fileID: 1017510929327051837}
   maxHealth: 5
   health: 0
+  temp: {fileID: 0}
 --- !u!82 &5492312371832099898
 AudioSource:
   m_ObjectHideFlags: 0

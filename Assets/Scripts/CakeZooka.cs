@@ -7,7 +7,8 @@ public class CakeZooka : Weapon
     public Transform nozzle;
     public Projectile projectile;
     public float fireRate;
-    
+    public AudioSource source;
+
     public override Transform GetNozzle()
     {
         return nozzle;
@@ -21,5 +22,10 @@ public class CakeZooka : Weapon
     public override float GetFireRate()
     {
         return fireRate;
+    }
+
+    public override void PlaySFX()
+    {
+        source.Play();
     }
 }

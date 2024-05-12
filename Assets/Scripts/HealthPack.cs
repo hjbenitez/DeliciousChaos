@@ -34,6 +34,7 @@ public class HealthPack : MonoBehaviour
         if(other.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerMovement>().health = other.gameObject.GetComponent<PlayerMovement>().maxHealth;
+            GameObject.Find("HealthPackSpawner").GetComponent<HealthPackSpawner>().RespawnHealthPack();
             Destroy(this.gameObject);
         }
     }

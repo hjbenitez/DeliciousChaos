@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
     {
         //ToggleDimension();
 
+        if (StaticValues.enemyCount <= 0)
+        {
+            StaticValues.NextWave();
+        }
+
         UpdateIcon();
 
         StaticValues.inverted = inverted;

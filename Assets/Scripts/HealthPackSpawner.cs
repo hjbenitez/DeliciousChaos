@@ -7,21 +7,19 @@ public class HealthPackSpawner : MonoBehaviour
     public List<GameObject> SpawnPoints;
     public GameObject healthPackPrefab;
 
-
     public List<int> spawnPointsUsed;
     
     // Start is called before the first frame update
     void Start()
     {
-        RespawnHealthPacks();
+        RespawnHealthPack();
+        RespawnHealthPack();
+        RespawnHealthPack();
     }
 
-    public void RespawnHealthPacks()
+    public void RespawnHealthPack()
     {
-        for(int i = 0; i < 3; i++)
-        {
             int point;
-
 
             while (true)
             {
@@ -43,16 +41,17 @@ public class HealthPackSpawner : MonoBehaviour
                 }
             }
 
-
             Instantiate(healthPackPrefab, SpawnPoints[point].transform.position, healthPackPrefab.transform.rotation);
 
             spawnPointsUsed.Add(point);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(spawnPointsUsed.Count > 6)
+        {
+            spawnPointsUsed.Clear();
+        }
     }
 }

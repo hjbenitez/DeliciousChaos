@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         gameManager = gameObject.GetComponent<GameManager>();
+        StaticValues.StartGame();
 
         currentWeapon = machineFork;
         machineFork.gameObject.SetActive(true);
@@ -60,6 +61,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("Wave Count: " + StaticValues.wave);
+        print("Enemy Count: " + StaticValues.enemyCount);
+        print("SliceMan Count: " + StaticValues.sliceManCounter);
+        print("BirthdayBoy Count: " + StaticValues.birthdayBoyCounter);
+
         transform.position = new Vector3(transform.position.x, -0.25f, transform.position.z);
 
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);

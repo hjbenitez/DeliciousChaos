@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Scoreboard : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI text;
+    public TextMeshProUGUI score;
     public Image hpBar;
 
+    public Image waveBanner;
+    public TextMeshProUGUI waveText;
+
     private PlayerMovement pm;
+
     
     // Start is called before the first frame update
     void Start()
@@ -19,8 +24,10 @@ public class Scoreboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = StaticValues.totalScore.ToString();
+        score.text = StaticValues.totalScore.ToString();
 
         hpBar.fillAmount = pm.health / pm.maxHealth;
+
+        waveText.SetText("Wave " + StaticValues.wave.ToString());
     }
 }

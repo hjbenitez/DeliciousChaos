@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy;
 
     public float spawnTime = 5f;
+    public float offset;
     float spawnTimer = 0;
 
     // Start is called before the first frame update
@@ -19,12 +20,20 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnTimer += Time.deltaTime;
-
         if (spawnTimer > spawnTime)
         {
-            Instantiate(enemy, transform.position, transform.rotation);
+            if(StaticValues.enemyCount < StaticValues.maxEnemyCount && StaticValues.CheckLayerCount(enemy.layer))
+            {
+                Instantiate(enemy, transform.position, transform.rotation);
+                StaticValues.IncremenentEnemyCounter(enemy.layer);
+            }
+
             spawnTimer = 0;
+        }
+
+        else
+        {
+            spawnTimer += Time.deltaTime;
         }
     }
 }

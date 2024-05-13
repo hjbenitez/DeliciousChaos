@@ -10,21 +10,21 @@ public class LevelGeo : Invert
 
     private void Start()
     {
-        prevInvertState = StaticValues.inverted;
+        prevInvertState = GameManager.inverted;
         InvertStatus();
     }
 
     private void Update()
     {
-        if (prevInvertState != StaticValues.inverted)
+        if (prevInvertState != GameManager.inverted)
         {
             InvertStatus();
-            prevInvertState = StaticValues.inverted;
+            prevInvertState = GameManager.inverted;
         }
     }
     public override void InvertStatus()
     {
-        if (StaticValues.inverted)
+        if (GameManager.inverted)
         {
             gameObject.GetComponent<MeshRenderer>().material = inverse;
         }

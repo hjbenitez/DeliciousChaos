@@ -70,7 +70,7 @@ public class Mouth : Projectile
 
                 else if (collider.gameObject.layer == 12)
                 {
-                    StaticValues.AddScore(100);
+                    GameManager.AddScore(100);
                     Destroy(collider.gameObject);
                 }
             }

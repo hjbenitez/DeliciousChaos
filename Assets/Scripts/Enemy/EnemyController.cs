@@ -67,7 +67,7 @@ public class EnemyController : MonoBehaviour
             TakeDamage(1);
         }
             
-        if(StaticValues.playerDead == true)
+        if(GameManager.playerDead == true)
         {
             TakeDamage(10000);
         }
@@ -86,7 +86,7 @@ public class EnemyController : MonoBehaviour
             Destroy(damager);
             Destroy(anim);
             Destroy(this.gameObject.GetComponent<BoxCollider>());
-            StaticValues.DecrementEnemyCounter();
+            GameManager.DecrementEnemyCounter();
 
             transform.DetachChildren();
             float minForce = 3f;

@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource hitSound;
     public AudioClip[] hitSoundClips;
 
-    private GameManager gameManager;
+    private InvertAbility invertAbility;
 
     public float maxHealth = 5f;
     [HideInInspector]
@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        gameManager = gameObject.GetComponent<GameManager>();
-        StaticValues.StartGame();
+        invertAbility = gameObject.GetComponent<InvertAbility>();
+        GameManager.StartGame();
 
         currentWeapon = machineFork;
         machineFork.gameObject.SetActive(true);
@@ -62,10 +62,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Wave Count: " + StaticValues.wave);
-        print("Enemy Count: " + StaticValues.enemyCount);
-        print("SliceMan Count: " + StaticValues.sliceManCounter);
-        print("BirthdayBoy Count: " + StaticValues.birthdayBoyCounter);
+        print("Wave Count: " + GameManager.wave);
+        print("Enemy Count: " + GameManager.enemyCount);
+        print("SliceMan Count: " + GameManager.sliceManCounter);
+        print("BirthdayBoy Count: " + GameManager.birthdayBoyCounter);
 
         transform.position = new Vector3(transform.position.x, -0.25f, transform.position.z);
 
@@ -88,7 +88,6 @@ public class PlayerMovement : MonoBehaviour
             ass.time = 0.5f;
             ass.Play();
             hitSound.Stop();
-            gameManager.music.Stop();
 
             foreach(Rigidbody rb in rbs)
             {
@@ -97,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(new Vector3(Random.Range(1, 3), Random.Range(1, 3), Random.Range(1, 3)), ForceMode.Impulse);
             }
 
-            StaticValues.playerDead = true;
+            GameManager.playerDead = true;
             dead = true;
         }
 
@@ -176,7 +175,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Invert()
     {
-        if (gameManager.inverted)
+        if (invertAbility.inverted)
         {
             invertValue = -1;
             currentWeapon = cakeZooka;

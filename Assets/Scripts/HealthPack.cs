@@ -17,7 +17,7 @@ public class HealthPack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (StaticValues.inverted)
+        if (GameManager.inverted)
         {
             inverted.SetActive(true);
             normal.SetActive(false);

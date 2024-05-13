@@ -24,10 +24,10 @@ public class Scoreboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = StaticValues.totalScore.ToString();
+        score.text = GameManager.totalScore.ToString();
 
         hpBar.fillAmount = pm.health / pm.maxHealth;
 
-        waveText.SetText("Wave " + StaticValues.wave.ToString());
+        waveText.SetText("Wave " + GameManager.wave.ToString());
     }
 }

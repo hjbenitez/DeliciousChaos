@@ -1,118 +1,81 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public static class GameManager
 {
-    public bool inverted = false;
+    public static MusicManager musicManager;
+    public static bool inverted;
+    public static int totalScore;
+    public static bool playerDead;
 
-    private bool offCooldown = true;
+    public static int wave;
+    public static int killCount;
 
-    public Image abilityImage;
+    public static int maxEnemyCount;
+    public static int enemyCount;
 
-    public float cooldown = 5f;
+    public static int sliceManWaveCount;
+    public static int sliceManCounter;
 
-    public AudioSource music;
-    public AudioSource musicInvert;
+    public static int birthdayBoyWaveCount;
+    public static int birthdayBoyCounter;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public static void StartGame()
     {
-        abilityImage.fillAmount = 0;
+        wave = 1;
+        sliceManWaveCount = 5;
+        birthdayBoyWaveCount = 1;
+        enemyCount = 6;
+        maxEnemyCount = 40;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void NextWave()
     {
-        //ToggleDimension();
+        sliceManWaveCount = Mathf.RoundToInt((sliceManWaveCount * 3) / 2);
+        birthdayBoyWaveCount = Mathf.RoundToInt(((birthdayBoyWaveCount * 3) / 2) + 1);
+        wave++;
 
-        if (StaticValues.enemyCount <= 0)
-        {
-            StaticValues.NextWave();
-        }
-
-        UpdateIcon();
-
-        StaticValues.inverted = inverted;
-
-        if(StaticValues.inverted)
-        {
-            music.volume = 0f;
-            musicInvert.volume = 0.5f;
-        }
-
-        else
-        {
-            music.volume = 0.5f;
-            musicInvert.volume = 0f;
-        }
-
-        Debug.Log(offCooldown);
+        birthdayBoyCounter = 0;
+        sliceManCounter = 0;
+        enemyCount = sliceManWaveCount + birthdayBoyWaveCount;
     }
 
-    //public void ToggleDimension()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Mouse1) && offCooldown == true) //flip dimension
-    //    {
-    //        inverted = !inverted;
-    //        GetComponent<PlayerMovement>().Invert();
-
-    //        StartCoroutine("UpdateCooldown");
-
-    //        TimeSlow();
-
-    //        Invoke("TimeRecovery", 1f);
-
-    //        Invoke("ResetCooldown", 4f);
-    //    }
-    //}
-
-    public void UpdateIcon()
+    public static void AddScore(int score)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1) && offCooldown == true)
+        totalScore += score;
+    }
+
+    public static void IncremenentEnemyCounter(int layer)
+    {
+        if(layer == 11) //birthday boy
         {
-            inverted = !inverted;
-            GetComponent<PlayerMovement>().Invert();
-
-            TimeSlow();
-
-            Invoke("TimeRecovery", 1f);
-
-            offCooldown = false;
-            abilityImage.fillAmount = 1;
+            birthdayBoyCounter++;
         }
 
-        if (offCooldown == false)
+        else //slice man 
         {
-            abilityImage.fillAmount -= 1 / cooldown * Time.deltaTime;
-
-            if(abilityImage.fillAmount <= 0)
-            {
-                abilityImage.fillAmount = 0;
-                offCooldown = true;
-            }
+            sliceManCounter++;
         }
     }
 
-    private IEnumerator UpdateCooldown()
+    public static void DecrementEnemyCounter()
     {
-        offCooldown = false;
-        yield return new WaitForSeconds(5f);
+        enemyCount--;
     }
 
-    public void ResetCooldown()
+    public static bool CheckLayerCount(int layer)
     {
-        offCooldown = true;
-    }
-    
-    public void TimeSlow()
-    {
-        Time.timeScale = 0.5f;
-    }
-    
-    public void TimeRecovery()
-    { 
-        Time.timeScale = 1f;
+        if (layer == 11) //birthday boy
+        {
+            return birthdayBoyCounter < birthdayBoyWaveCount;
+        }
+
+        else //slice man
+        {
+            return sliceManCounter < sliceManWaveCount;
+        }
     }
 }

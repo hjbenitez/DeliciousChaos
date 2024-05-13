@@ -19,7 +19,7 @@ public class SwapImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (StaticValues.inverted)
+        if (GameManager.inverted)
         {
             icon.sprite = invertedImg;
         }

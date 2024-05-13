@@ -34,10 +34,10 @@ public class PauseMenu : MonoBehaviour
             PauseGame();
         }
 
-        if (StaticValues.playerDead && !dead)
+        if (GameManager.playerDead && !dead)
         {
-            wavesText.text = "Waves Survived: " + StaticValues.wave.ToString();
-            scoreText.text = "Score: " + StaticValues.totalScore.ToString();
+            wavesText.text = "Waves Survived: " + GameManager.wave.ToString();
+            scoreText.text = "Score: " + GameManager.totalScore.ToString();
 
             deathUI.SetActive(true);
             Destroy(GameObject.Find("PlayerUI"));
@@ -53,7 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
-        StaticValues.playerDead = false;
+        GameManager.playerDead = false;
         SceneManager.LoadScene("YorickBlockOutFinal");
     }
 

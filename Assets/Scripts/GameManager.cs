@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ToggleDimension();
-
         if (StaticValues.enemyCount <= 0)
         {
             StaticValues.NextWave();
@@ -35,23 +33,6 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(offCooldown);
     }
-
-    //public void ToggleDimension()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Mouse1) && offCooldown == true) //flip dimension
-    //    {
-    //        inverted = !inverted;
-    //        GetComponent<PlayerMovement>().Invert();
-
-    //        StartCoroutine("UpdateCooldown");
-
-    //        TimeSlow();
-
-    //        Invoke("TimeRecovery", 1f);
-
-    //        Invoke("ResetCooldown", 4f);
-    //    }
-    //}
 
     public void UpdateIcon()
     {
@@ -80,11 +61,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator UpdateCooldown()
-    {
-        offCooldown = false;
-        yield return new WaitForSeconds(5f);
-    }
+    //private IEnumerator UpdateCooldown()
+    //{
+    //    offCooldown = false;
+    //    yield return new WaitForSeconds(5f);
+    //}
 
     public void ResetCooldown()
     {

@@ -36,22 +36,22 @@ public class InvertAbility : MonoBehaviour
         Debug.Log(offCooldown);
     }
 
-    //public void ToggleDimension()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Mouse1) && offCooldown == true) //flip dimension
-    //    {
-    //        inverted = !inverted;
-    //        GetComponent<PlayerMovement>().Invert();
+    public void ToggleDimension()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse1) && offCooldown == true) //flip dimension
+        {
+            inverted = !inverted;
+            GetComponent<PlayerMovement>().Invert();
 
-    //        StartCoroutine("UpdateCooldown");
+            StartCoroutine("UpdateCooldown");
 
-    //        TimeSlow();
+            TimeSlow();
 
-    //        Invoke("TimeRecovery", 1f);
+            Invoke("TimeRecovery", 1f);
 
-    //        Invoke("ResetCooldown", 4f);
-    //    }
-    //}
+            Invoke("ResetCooldown", 4f);
+        }
+    }
 
     public void UpdateIcon()
     {
@@ -72,7 +72,7 @@ public class InvertAbility : MonoBehaviour
         {
             abilityImage.fillAmount -= 1 / cooldown * Time.deltaTime;
 
-            if(abilityImage.fillAmount <= 0)
+            if (abilityImage.fillAmount <= 0)
             {
                 abilityImage.fillAmount = 0;
                 offCooldown = true;
@@ -90,14 +90,14 @@ public class InvertAbility : MonoBehaviour
     {
         offCooldown = true;
     }
-    
+
     public void TimeSlow()
     {
         Time.timeScale = 0.5f;
     }
-    
+
     public void TimeRecovery()
-    { 
+    {
         Time.timeScale = 1f;
     }
 }

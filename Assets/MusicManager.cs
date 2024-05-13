@@ -10,6 +10,8 @@ public class MusicManager : MonoBehaviour
 
     bool lastInverted;
     float musicTime;
+    float maxVolume = 0.1f;
+
     private void Awake()
     {
         if(GameManager.musicManager == null && GameManager.musicManager != this)
@@ -55,6 +57,16 @@ public class MusicManager : MonoBehaviour
                 lastInverted = GameManager.inverted;
             }
         }
-
     }
+
+    public AudioSource GetMusicSource()
+    {
+        return music;
+    }
+
+    public float GetMaxVolume()
+    {
+        return maxVolume;
+    }
+
 }

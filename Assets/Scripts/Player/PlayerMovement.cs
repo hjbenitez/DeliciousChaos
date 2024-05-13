@@ -80,8 +80,6 @@ public class PlayerMovement : MonoBehaviour
             this.transform.LookAt(mouseDirection);
         }
 
-
-
         if (health <= 0 && !dead)
         {
             AudioSource ass = GetComponent<AudioSource>();

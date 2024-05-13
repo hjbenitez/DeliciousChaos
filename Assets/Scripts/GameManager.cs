@@ -6,6 +6,9 @@ using UnityEngine;
 public static class GameManager
 {
     public static MusicManager musicManager;
+
+    public static float musicVolume = 1f;
+
     public static bool inverted;
     public static int totalScore;
     public static bool playerDead;
@@ -77,5 +80,10 @@ public static class GameManager
         {
             return sliceManCounter < sliceManWaveCount;
         }
+    }
+
+    public static void ChangeMusicVolume()
+    {
+        musicManager.GetMusicSource().volume = musicManager.GetMaxVolume() * musicVolume;
     }
 }

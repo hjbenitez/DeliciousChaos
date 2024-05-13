@@ -284,7 +284,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 593253791}
-        m_TargetAssemblyTypeName: MenuButtonManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: OptionsMenuManager, Assembly-CSharp
         m_MethodName: ClickReturnMenu
         m_Mode: 1
         m_Arguments:
@@ -1039,9 +1039,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 593253786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b5082bf7d836804686690127de34bf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 641cedc4a1d8489489ac677cb9909b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVolumeSlider: {fileID: 1966793932}
 --- !u!1 &593378225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,7 +2241,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593253791}
+        m_TargetAssemblyTypeName: OptionsMenuManager, Assembly-CSharp
+        m_MethodName: musicVolumeChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2004003342
 GameObject:
   m_ObjectHideFlags: 0

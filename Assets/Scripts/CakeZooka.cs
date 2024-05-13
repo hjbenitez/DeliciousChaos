@@ -9,6 +9,13 @@ public class CakeZooka : Weapon
     public float fireRate;
     public AudioSource source;
 
+    float sfxMaxVolume = 1f;
+
+    public void Start()
+    {
+        source.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
+    }
+
     public override Transform GetNozzle()
     {
         return nozzle;

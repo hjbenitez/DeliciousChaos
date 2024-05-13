@@ -14,7 +14,7 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        if(GameManager.musicManager == null && GameManager.musicManager != this)
+        if (GameManager.musicManager == null && GameManager.musicManager != this)
         {
             GameManager.musicManager = this;
             DontDestroyOnLoad(transform.gameObject);
@@ -38,11 +38,16 @@ public class MusicManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "YorickBlockOutFinal")
         {
+            if (music.clip == songs[0])
+            {
+                music.time = 0;
+            }
             musicTime = music.time;
 
             if (lastInverted != GameManager.inverted)
             {
-                if(!GameManager.inverted)
+
+                if (!GameManager.inverted)
                 {
                     music.clip = songs[1];
                 }

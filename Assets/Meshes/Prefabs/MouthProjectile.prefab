@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   lifeTime: 5
-  damage: 3
+  damage: 5
   fireRate: 2.5
   boom: {fileID: 879156825028064412}
   impactSFX: {fileID: 8300000, guid: 60fdfd26cf670c8498cf9428ff1b8df0, type: 3}

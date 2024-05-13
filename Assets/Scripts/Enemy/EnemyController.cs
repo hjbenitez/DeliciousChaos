@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
     private float currentHealth;
     private bool dead;
     private bool deathSound;
+    float sfxMaxVolume = 1f;
     
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,8 @@ public class EnemyController : MonoBehaviour
         EnemyCanvas ec = healthCanvas.GetComponent<EnemyCanvas>();
         ec.canvasPos = healthBarSpawnLocation;
         hpBar = ec.healthBar;
+
+        source.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
     }
 
     // Update is called once per frame

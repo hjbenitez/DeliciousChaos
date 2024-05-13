@@ -7,7 +7,14 @@ public class MachineFork : Weapon
     public Transform nozzle;
     public Projectile projectile;
     public float fireRate;
+
     public AudioSource source;
+    float sfxMaxVolume = 0.5f;
+
+    public void Start()
+    {
+        source.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
+    }
 
     public override Transform GetNozzle()
     {

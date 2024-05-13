@@ -7,7 +7,9 @@ public static class GameManager
 {
     public static MusicManager musicManager;
 
+    public static float mainVolume = 1f;
     public static float musicVolume = 1f;
+    public static float sfxVolume = 1f;
 
     public static bool inverted;
     public static int totalScore;
@@ -84,6 +86,17 @@ public static class GameManager
 
     public static void ChangeMusicVolume()
     {
-        musicManager.GetMusicSource().volume = musicManager.GetMaxVolume() * musicVolume;
+        musicManager.GetMusicSource().volume = musicManager.GetMaxVolume() * musicVolume * mainVolume;
+    }
+
+    public static void musicStop()
+    {
+        musicManager.GetMusicSource().Stop();
+    }
+
+    public static void musicReset()
+    {
+        musicManager.GetMusicSource().time = 0;
+        musicManager.GetMusicSource().Play();
     }
 }

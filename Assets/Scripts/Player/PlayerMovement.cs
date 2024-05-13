@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 mouseDirection;
 
     private int numberOfTricks;
+    float sfxMaxVolume = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
         cakeZooka.gameObject.SetActive(false);
 
         health = maxHealth;
-
+        hitSound.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
+        
         foreach (Rigidbody rb in rbs)
         {
             rb.gameObject.GetComponent<Collider>().isTrigger = true;
@@ -84,8 +86,10 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioSource ass = GetComponent<AudioSource>();
             ass.time = 0.5f;
+            ass.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
             ass.Play();
             hitSound.Stop();
+            GameManager.musicStop();
 
             foreach(Rigidbody rb in rbs)
             {
@@ -115,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             AudioSource ass2HUH = anim.gameObject.GetComponent<AudioSource>();
+            ass2HUH.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
             ass2HUH.pitch = 1;
 
             int tricktype = Random.Range(0, 2);

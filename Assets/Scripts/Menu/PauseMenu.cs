@@ -53,6 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
+        GameManager.musicReset();
         GameManager.playerDead = false;
         SceneManager.LoadScene("YorickBlockOutFinal");
     }

@@ -17,7 +17,7 @@ public class Mouth : Projectile
     float lifeTimer = 0f;
     float initialSpeedTime = 0;
     float damageRadius = 5f;
-    
+    float sfxMaxVolume = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +77,7 @@ public class Mouth : Projectile
 
             ParticleSystem temp = Instantiate(boom, transform.position, transform.rotation);
             AudioSource tempSource = temp.AddComponent<AudioSource>();
+            tempSource.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
             tempSource.clip = impactSFX;
             tempSource.reverbZoneMix = 1f;
             tempSource.pitch = 0.75f;

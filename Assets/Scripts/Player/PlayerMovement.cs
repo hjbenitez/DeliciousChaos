@@ -18,8 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private float moveVertical = 1;
     private bool dead;
     public Animator anim;
-    public AudioSource hitSound;
+    public AudioSource sourceSFX;
     public AudioClip[] hitSoundClips;
+    public AudioClip invertSFX;
 
     private InvertAbility invertAbility;
 
@@ -53,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         cakeZooka.gameObject.SetActive(false);
 
         health = maxHealth;
-        hitSound.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
+        sourceSFX.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
         
         foreach (Rigidbody rb in rbs)
         {
@@ -88,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             ass.time = 0.5f;
             ass.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
             ass.Play();
-            hitSound.Stop();
+            sourceSFX.Stop();
             GameManager.musicStop();
 
             foreach(Rigidbody rb in rbs)
@@ -184,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
             currentWeapon = cakeZooka;
 
             machineFork.gameObject.SetActive(false);
-            cakeZooka.gameObject.SetActive(true);
+            cakeZooka.gameObject.SetActive(true); 
         }
 
         else
@@ -195,6 +196,9 @@ public class PlayerMovement : MonoBehaviour
             machineFork.gameObject.SetActive(true);
             cakeZooka.gameObject.SetActive(false);
         }
+
+        sourceSFX.clip = invertSFX;
+        sourceSFX.Play();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -203,8 +207,8 @@ public class PlayerMovement : MonoBehaviour
         {
             health--;
             int i = Random.Range(0, 3);
-            hitSound.clip = hitSoundClips[i];
-            hitSound.Play();
+            sourceSFX.clip = hitSoundClips[i];
+            sourceSFX.Play();
         }
     }
 }

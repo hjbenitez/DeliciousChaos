@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -91,6 +92,11 @@ public class EnemyController : MonoBehaviour
             Destroy(this.gameObject.GetComponent<BoxCollider>());
             GameManager.DecrementEnemyCounter();
 
+            foreach(Transform child in transform)
+            {
+                child.AddComponent<Splat>();
+                child.AddComponent<AudioSource>();
+            }
             transform.DetachChildren();
             float minForce = 3f;
 

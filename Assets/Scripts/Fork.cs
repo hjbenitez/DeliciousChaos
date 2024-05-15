@@ -8,7 +8,7 @@ public class Fork : Projectile
     public float lifeTime = 5f;
     public int damage = 1;
     public float fireRate = 0.25f;
-    public ParticleSystem cakeSplatter;
+    public GameObject cakeSplatter;
 
     Rigidbody rb;
     float lifeTimer = 0f;
@@ -48,7 +48,8 @@ public class Fork : Projectile
             if(other.gameObject.tag == "Enemy")
             {
                 other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
-                Instantiate(cakeSplatter, transform.position, transform.rotation);
+                GameObject temp = Instantiate(cakeSplatter, transform.position, transform.rotation);
+                temp.GetComponent<AudioSource>().volume = GameManager.SetSFXVolume(0.5f); 
             }
 
             Destroy(gameObject);

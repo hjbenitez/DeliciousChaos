@@ -20,6 +20,7 @@ public static class GameManager
 
     public static int maxEnemyCount;
     public static int enemyCount;
+    public static int spawnedEnemies;
 
     public static int sliceManWaveCount;
     public static int sliceManCounter;
@@ -64,11 +65,14 @@ public static class GameManager
         {
             sliceManCounter++;
         }
+
+        spawnedEnemies++;
     }
 
     public static void DecrementEnemyCounter()
     {
         enemyCount--;
+        spawnedEnemies--;
     }
 
     public static bool CheckLayerCount(int layer)
@@ -98,5 +102,9 @@ public static class GameManager
     {
         musicManager.GetMusicSource().time = 0;
         musicManager.GetMusicSource().Play();
+    }
+    public static float SetSFXVolume(float volume)
+    {
+        return volume *mainVolume * sfxVolume;
     }
 }

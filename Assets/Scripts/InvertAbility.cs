@@ -94,10 +94,12 @@ public class InvertAbility : MonoBehaviour
     public void TimeSlow()
     {
         Time.timeScale = 0.5f;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
     }
 
     public void TimeRecovery()
     {
         Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
     }
 }

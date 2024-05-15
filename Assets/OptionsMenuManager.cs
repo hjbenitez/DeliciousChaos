@@ -20,7 +20,7 @@ public class OptionsMenuManager : MonoBehaviour
         sfxVolumeSlider.value = GameManager.sfxVolume;
         musicVolumeSlider.value = GameManager.musicVolume;
 
-        audioSource = gameObject.GetComponent<AudioSource>();   
+        audioSource = GetComponent<AudioSource>();   
     }
 
     private void Update()

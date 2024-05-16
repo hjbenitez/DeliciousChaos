@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         health = maxHealth;
         sourceSFX.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
-        
+
         foreach (Rigidbody rb in rbs)
         {
             rb.gameObject.GetComponent<Collider>().isTrigger = true;
@@ -65,11 +65,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Wave Count: " + GameManager.wave);
-        print("Enemy Count: " + GameManager.enemyCount);
-        print("SliceMan Count: " + GameManager.sliceManCounter);
-        print("BirthdayBoy Count: " + GameManager.birthdayBoyCounter);
-
         transform.position = new Vector3(transform.position.x, -0.25f, transform.position.z);
 
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -81,65 +76,70 @@ public class PlayerMovement : MonoBehaviour
         if (!dead)
         {
             this.transform.LookAt(mouseDirection);
-        }
 
-        if (health <= 0 && !dead)
-        {
-            AudioSource ass = GetComponent<AudioSource>();
-            ass.time = 0.5f;
-            ass.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
-            ass.Play();
-            sourceSFX.Stop();
-            GameManager.musicStop();
 
-            foreach(Rigidbody rb in rbs)
+            if (health <= 0 && !dead)
             {
-                rb.isKinematic = false;
-                rb.gameObject.GetComponent<Collider>().isTrigger = false;
-                rb.AddForce(new Vector3(Random.Range(1, 3), Random.Range(1, 3), Random.Range(1, 3)), ForceMode.Impulse);
+                AudioSource ass = GetComponent<AudioSource>();
+                ass.time = 0.5f;
+                ass.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
+                ass.Play();
+                sourceSFX.Stop();
+                GameManager.musicStop();
+
+                foreach (Rigidbody rb in rbs)
+                {
+                    rb.isKinematic = false;
+                    rb.gameObject.GetComponent<Collider>().isTrigger = false;
+                    rb.AddForce(new Vector3(Random.Range(1, 3), Random.Range(1, 3), Random.Range(1, 3)), ForceMode.Impulse);
+                }
+
+                GameManager.playerDead = true;
+                dead = true;
             }
 
-            GameManager.playerDead = true;
-            dead = true;
-        }
+            CheckInput();
 
-        CheckInput();
-        //print(fireRateTimer);
-
-        if (!canFire)
-        {
-            fireRateTimer += Time.deltaTime;
-
-            if (fireRateTimer > currentWeapon.GetFireRate())
+            if (!canFire)
             {
-                canFire = true;
-                fireRateTimer = 0;
+                fireRateTimer += Time.deltaTime;
+
+                if (fireRateTimer > currentWeapon.GetFireRate())
+                {
+                    canFire = true;
+                    fireRateTimer = 0;
+                }
+            }
+
+            if (Input.GetKeyDown("space"))
+            {
+                AudioSource ass2HUH = anim.gameObject.GetComponent<AudioSource>();
+                ass2HUH.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
+                ass2HUH.pitch = 1;
+
+                int tricktype = Random.Range(0, 2);
+
+                if (numberOfTricks >= 8)
+                {
+                    tricktype = 2;
+                    numberOfTricks = 0;
+                    ass2HUH.pitch = 0.5f;
+                }
+
+                ass2HUH.time = 0;
+                ass2HUH.Play();
+
+                anim.SetInteger("TrickNum", tricktype);
+                anim.SetTrigger("Trick");
+
+                numberOfTricks++;
             }
         }
 
-        if (Input.GetKeyDown("space"))
-        {
-            AudioSource ass2HUH = anim.gameObject.GetComponent<AudioSource>();
-            ass2HUH.volume = sfxMaxVolume * GameManager.sfxVolume * GameManager.mainVolume;
-            ass2HUH.pitch = 1;
-
-            int tricktype = Random.Range(0, 2);
-
-            if (numberOfTricks >= 8)
+        else
             {
-                tricktype = 2;
-                numberOfTricks = 0;
-                ass2HUH.pitch = 0.5f;
+                _rb.velocity = Vector3.zero;
             }
-
-            ass2HUH.time = 0;
-            ass2HUH.Play();
-
-            anim.SetInteger("TrickNum", tricktype);
-            anim.SetTrigger("Trick");
-
-            numberOfTricks++;
-        }
     }
 
     public void CheckInput()
@@ -185,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
             currentWeapon = cakeZooka;
 
             machineFork.gameObject.SetActive(false);
-            cakeZooka.gameObject.SetActive(true); 
+            cakeZooka.gameObject.SetActive(true);
         }
 
         else
@@ -203,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 8)
+        if (other.gameObject.layer == 8)
         {
             health--;
             int i = Random.Range(0, 3);

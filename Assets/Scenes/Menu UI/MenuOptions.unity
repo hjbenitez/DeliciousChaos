@@ -1040,16 +1040,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 593253786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641cedc4a1d8489489ac677cb9909b5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 466cd4edd4c286b42bbcbdbbf6a5165f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainVolumeSlider: {fileID: 634280981}
-  sfxVolumeSlider: {fileID: 1755848782}
+  sfxVolumeSlider: {fileID: 1966793932}
   musicVolumeSlider: {fileID: 1966793932}
   hitSoundClips:
   - {fileID: 8300000, guid: c4b922f53c019ce47aa655f145c9b492, type: 3}
-  - {fileID: 8300000, guid: 99319518ef9bf9f45bc428d10ad53869, type: 3}
   - {fileID: 8300000, guid: 8f667975bd669b04da6a7d77b844fd40, type: 3}
+  - {fileID: 8300000, guid: 99319518ef9bf9f45bc428d10ad53869, type: 3}
 --- !u!82 &593253792
 AudioSource:
   m_ObjectHideFlags: 0

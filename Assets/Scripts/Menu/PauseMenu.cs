@@ -49,6 +49,8 @@ public class PauseMenu : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene("MainMenu");
+        GameManager.musicManager.ChangeMusic(0);
+        Time.timeScale = 1;
     }
 
     public void RestartGame()
@@ -56,6 +58,7 @@ public class PauseMenu : MonoBehaviour
         GameManager.musicReset();
         GameManager.playerDead = false;
         SceneManager.LoadScene("YorickBlockOutFinal");
+        Time.timeScale = 1;
     }
 
     public void PauseGame()

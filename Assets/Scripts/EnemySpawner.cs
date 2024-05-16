@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (spawnTimer > spawnTime)
         {
-            if(GameManager.spawnedEnemies < GameManager.maxEnemyCount && GameManager.CheckLayerCount(enemy.layer))
+            if(GameManager.spawnedEnemies < GameManager.maxEnemyCount && GameManager.CheckLayerCount(enemy.layer) && !GameManager.playerDead)
             {
                 Instantiate(enemy, transform.position, transform.rotation);
                 GameManager.IncremenentEnemyCounter(enemy.layer);

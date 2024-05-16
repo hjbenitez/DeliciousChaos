@@ -19,6 +19,7 @@ public class MenuButtonManager : MonoBehaviour
 
     public void ClickPlay()
     {
+        GameManager.musicManager.ChangeMusic(1);
         SceneManager.LoadScene("YorickBlockOutFinal");
     }
 

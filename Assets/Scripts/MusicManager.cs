@@ -28,7 +28,7 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastInverted = !GameManager.inverted;
+        lastInverted = GameManager.inverted;
         music = GetComponent<AudioSource>();
         music.clip = songs[0];
         music.Play();
@@ -72,6 +72,13 @@ public class MusicManager : MonoBehaviour
     public float GetMaxVolume()
     {
         return maxVolume;
+    }
+
+    public void ChangeMusic(int i)
+    {
+        music.time = 0;
+        music.clip = songs[i];
+        music.Play();
     }
 
 }

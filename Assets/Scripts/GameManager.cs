@@ -36,6 +36,12 @@ public static class GameManager
         birthdayBoyWaveCount = 1;
         enemyCount = 6;
         maxEnemyCount = 40;
+        
+        playerDead = false;
+        totalScore = 0;
+
+        birthdayBoyCounter = 0;
+        sliceManCounter = 0;
     }
 
     public static void NextWave()
